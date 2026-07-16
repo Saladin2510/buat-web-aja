@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health - Mind Space</title>
-    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
     <!-- Google Fonts: Playfair Display & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Tailwind Custom Configuration with Animations -->
     <script>
         tailwind.config = {
@@ -61,61 +66,110 @@
             }
         }
     </script>
-    
+
     <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-brand-pink text-brand-white font-inter antialiased min-h-screen overflow-x-hidden">
 
     <!-- Hero Section (Section 1) -->
     <section class="relative w-full h-screen overflow-hidden flex flex-col">
-        
+
         <!-- Full Screen Background Image Slider (z-0) -->
         <!-- Menambahkan animasi zoom-out agar gambar terasa "membuka" perlahan -->
         <div class="absolute inset-0 z-0 bg-brand-pink overflow-hidden">
             <div class="w-full h-full animate-zoom-out relative">
-                <img id="hero-img-1" src="assets/hero-img-1.png" alt="Hero 1" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100">
-                <img id="hero-img-2" src="assets/hero-img-2.png" alt="Hero 2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
-                <img id="hero-img-3" src="assets/hero-img-3.png" alt="Hero 3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
-                
+                <img id="hero-img-1" src="assets/hero-img-1.png" alt="Hero 1"
+                    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100">
+                <img id="hero-img-2" src="assets/hero-img-2.png" alt="Hero 2"
+                    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
+                <img id="hero-img-3" src="assets/hero-img-3.png" alt="Hero 3"
+                    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
+
                 <!-- Overlay tipis untuk kontras teks -->
                 <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
             </div>
         </div>
 
-        <!-- Navbar (z-20) -->
-        <!-- Animasi turun dari atas. Class opacity-0 di awal agar transisi bersih -->
-        <nav class="relative z-20 w-full py-6 flex justify-center gap-2 md:gap-8 font-playfair text-lg md:text-xl drop-shadow-md opacity-0 animate-slide-down" style="animation-delay: 0.2s;">
-            <!-- Penambahan Glassmorphism: px-4 py-2 rounded-lg hover:bg-white/20 hover:backdrop-blur-md -->
-            <a href="#" class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Beranda</a>
-            <a href="#" class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Tentang</a>
-            <a href="#" class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Isi</a>
-            <a href="#" class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Hubungi</a>
+        <!-- Navbar & Mobile Menu Overlay (z-50) -->
+        <nav class="relative z-50 w-full px-6 md:px-12 py-6 flex justify-between md:justify-center items-center drop-shadow-md opacity-0 animate-slide-down"
+            style="animation-delay: 0.2s;">
+
+            <!-- Logo Website (Absolute di Desktop) -->
+            <a href="#" class="md:absolute md:left-12 z-50 flex items-center group">
+                <img src="assets/logo.png" alt="Logo Mind Space"
+                    class="h-10 w-auto transition-transform duration-300 group-hover:scale-110">
+            </a>
+
+            <!-- Desktop Menu (Tepat di tengah) -->
+            <div class="hidden md:flex gap-2 lg:gap-8 font-playfair text-lg lg:text-xl">
+                <a href="#"
+                    class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Beranda</a>
+                <a href="#"
+                    class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Tentang</a>
+                <a href="#"
+                    class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Isi</a>
+                <a href="#"
+                    class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Hubungi</a>
+            </div>
+
+            <!-- Hamburger Button Mobile -->
+            <button id="hamburger-btn"
+                class="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 z-50 focus:outline-none">
+                <span
+                    class="w-7 h-[3px] bg-brand-white rounded-full transition-all duration-300 ease-in-out transform origin-center"></span>
+                <span class="w-7 h-[3px] bg-brand-white rounded-full transition-all duration-300 ease-in-out"></span>
+                <span
+                    class="w-7 h-[3px] bg-brand-white rounded-full transition-all duration-300 ease-in-out transform origin-center"></span>
+            </button>
         </nav>
 
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-brand-pink/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+            <!-- Navigasi Mobile -->
+            <div class="flex flex-col gap-8 text-center font-playfair text-3xl">
+                <a href="#" class="mobile-link hover:text-white/70 transition-colors">Beranda</a>
+                <a href="#" class="mobile-link hover:text-white/70 transition-colors">Tentang</a>
+                <a href="#" class="mobile-link hover:text-white/70 transition-colors">Isi</a>
+                <a href="#" class="mobile-link hover:text-white/70 transition-colors">Hubungi</a>
+            </div>
+
+            <!-- Logo di Mobile Menu Bottom -->
+            <div class="absolute bottom-10 flex flex-col items-center opacity-70">
+                <img src="assets/logo.png" alt="Logo Mind Space" class="h-12 w-auto mb-2">
+                <span class="font-playfair text-sm tracking-widest">MINDS PACE</span>
+            </div>
+        </div>
+
         <!-- Typography & UI Elements (z-10) -->
-        <div class="relative z-10 flex-grow pointer-events-none">
-            
-            <!-- Typography: MENTAL (Masuk perlahan dari kiri) -->
-            <h1 class="absolute top-4 left-6 md:top-10 md:left-20 text-6xl md:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-right" style="animation-delay: 0.5s;">
+        <div class="relative z-40 flex-grow w-full h-full">
+
+            <h1 class="absolute top-4 left-6 md:top-10 md:left-20 text-6xl md:text-[7rem] lg:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-right transition-transform duration-300 hover:scale-105 cursor-default origin-top-left"
+                style="animation-delay: 0.5s;">
                 MENTAL
             </h1>
-            
-            <!-- Typography: HEALTH (Masuk perlahan dari kanan) -->
-            <h1 class="vertical-text absolute top-1/2 right-2 md:right-10 -translate-y-1/2 text-6xl md:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-left" style="animation-delay: 0.7s;">
-                HEALTH
-            </h1>
 
-            <!-- Element: High Cortisol (Masuk perlahan dari bawah) -->
-            <div class="absolute bottom-10 left-6 md:left-20 flex flex-col items-start gap-2 pointer-events-auto opacity-0 animate-slide-up" style="animation-delay: 0.9s;">
-                <div class="w-6 h-6 md:w-8 md:h-8 bg-brand-white rounded-full shadow-sm"></div>
-                <p class="font-playfair text-lg md:text-2xl leading-tight font-semibold mt-1 drop-shadow-md">High<br>Cortisol.</p>
+            <div class="absolute inset-y-0 right-2 md:right-10 flex flex-col justify-center z-50">
+                <h1 class="vertical-text text-6xl md:text-[7rem] lg:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-left transition-transform duration-300 hover:scale-105 cursor-default origin-center"
+                    style="animation-delay: 0.7s;">
+                    HEALTH
+                </h1>
             </div>
-            
-        </div>
+
+            <div class="absolute bottom-10 left-6 md:left-20 flex flex-col items-start gap-2 z-50 opacity-0 animate-slide-up transition-transform duration-300 hover:scale-105 cursor-default origin-bottom-left"
+                style="animation-delay: 0.9s;">
+                <div class="w-6 h-6 md:w-8 md:h-8 bg-brand-white rounded-full shadow-sm"></div>
+                <p class="font-playfair text-lg md:text-2xl leading-tight font-semibold mt-1 drop-shadow-md">
+                    High<br>Cortisol.</p>
+            </div>
+
+        </div>  
     </section>
 
     <!-- External JS -->
     <script src="script.js"></script>
 </body>
+
 </html>
