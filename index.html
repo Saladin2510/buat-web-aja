@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health - Mind Space</title>
     
+    <!-- Google Fonts: Playfair Display & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Tailwind Custom Configuration with Animations -->
     <script>
         tailwind.config = {
             theme: {
@@ -22,44 +25,89 @@
                     fontFamily: {
                         'playfair': ['"Playfair Display"', 'serif'],
                         'inter': ['"Inter"', 'sans-serif'],
+                    },
+                    // Kumpulan keyframes untuk animasi awal (opening)
+                    keyframes: {
+                        slideRight: {
+                            '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(50px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        zoomOut: {
+                            '0%': { transform: 'scale(1.1)' },
+                            '100%': { transform: 'scale(1)' },
+                        }
+                    },
+                    // Mendaftarkan animasi agar bisa dipanggil lewat class
+                    animation: {
+                        'slide-right': 'slideRight 1s ease-out forwards',
+                        'slide-left': 'slideLeft 1s ease-out forwards',
+                        'slide-down': 'slideDown 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 1s ease-out forwards',
+                        'zoom-out': 'zoomOut 1.5s ease-out forwards',
                     }
                 }
             }
         }
     </script>
     
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-brand-pink text-brand-white font-inter antialiased min-h-screen overflow-x-hidden">
 
+    <!-- Hero Section (Section 1) -->
     <section class="relative w-full h-screen overflow-hidden flex flex-col">
         
-        <div class="absolute inset-0 z-0 bg-brand-pink">
-            <img id="hero-img-1" src="assets/hero-img-1.png" alt="Hero 1" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100">
-            <img id="hero-img-2" src="assets/hero-img-2.png" alt="Hero 2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
-            <img id="hero-img-3" src="assets/hero-img-3.png" alt="Hero 3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
-            
-            <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
+        <!-- Full Screen Background Image Slider (z-0) -->
+        <!-- Menambahkan animasi zoom-out agar gambar terasa "membuka" perlahan -->
+        <div class="absolute inset-0 z-0 bg-brand-pink overflow-hidden">
+            <div class="w-full h-full animate-zoom-out relative">
+                <img id="hero-img-1" src="assets/hero-img-1.png" alt="Hero 1" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100">
+                <img id="hero-img-2" src="assets/hero-img-2.png" alt="Hero 2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
+                <img id="hero-img-3" src="assets/hero-img-3.png" alt="Hero 3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
+                
+                <!-- Overlay tipis untuk kontras teks -->
+                <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
+            </div>
         </div>
 
-        <nav class="relative z-20 w-full py-8 flex justify-center gap-6 md:gap-12 font-playfair text-lg md:text-xl drop-shadow-md">
-            <a href="#" class="border-b border-brand-white pb-1">Beranda</a>
-            <a href="#" class="hover:border-b hover:border-brand-white pb-1 transition-all">Tentang</a>
-            <a href="#" class="hover:border-b hover:border-brand-white pb-1 transition-all">Isi</a>
-            <a href="#" class="hover:border-b hover:border-brand-white pb-1 transition-all">Hubungi</a>
+        <!-- Navbar (z-20) -->
+        <!-- Animasi turun dari atas. Class opacity-0 di awal agar transisi bersih -->
+        <nav class="relative z-20 w-full py-6 flex justify-center gap-2 md:gap-8 font-playfair text-lg md:text-xl drop-shadow-md opacity-0 animate-slide-down" style="animation-delay: 0.2s;">
+            <!-- Penambahan Glassmorphism: px-4 py-2 rounded-lg hover:bg-white/20 hover:backdrop-blur-md -->
+            <a href="#" class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Beranda</a>
+            <a href="#" class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Tentang</a>
+            <a href="#" class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Isi</a>
+            <a href="#" class="px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-md border-b-2 border-transparent hover:border-brand-white">Hubungi</a>
         </nav>
 
+        <!-- Typography & UI Elements (z-10) -->
         <div class="relative z-10 flex-grow pointer-events-none">
             
-            <h1 class="absolute top-4 left-6 md:top-10 md:left-20 text-6xl md:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg">
+            <!-- Typography: MENTAL (Masuk perlahan dari kiri) -->
+            <h1 class="absolute top-4 left-6 md:top-10 md:left-20 text-6xl md:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-right" style="animation-delay: 0.5s;">
                 MENTAL
             </h1>
             
-            <h1 class="vertical-text absolute top-1/2 right-2 md:right-10 -translate-y-1/2 text-6xl md:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg">
+            <!-- Typography: HEALTH (Masuk perlahan dari kanan) -->
+            <h1 class="vertical-text absolute top-1/2 right-2 md:right-10 -translate-y-1/2 text-6xl md:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-left" style="animation-delay: 0.7s;">
                 HEALTH
             </h1>
 
-            <div class="absolute bottom-10 left-6 md:left-20 flex flex-col items-start gap-2 pointer-events-auto">
+            <!-- Element: High Cortisol (Masuk perlahan dari bawah) -->
+            <div class="absolute bottom-10 left-6 md:left-20 flex flex-col items-start gap-2 pointer-events-auto opacity-0 animate-slide-up" style="animation-delay: 0.9s;">
                 <div class="w-6 h-6 md:w-8 md:h-8 bg-brand-white rounded-full shadow-sm"></div>
                 <p class="font-playfair text-lg md:text-2xl leading-tight font-semibold mt-1 drop-shadow-md">High<br>Cortisol.</p>
             </div>
@@ -67,6 +115,7 @@
         </div>
     </section>
 
+    <!-- External JS -->
     <script src="script.js"></script>
 </body>
 </html>
