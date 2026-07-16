@@ -118,4 +118,28 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update posisi terakhir
         lastScrollY = currentScrollY;
     });
+
+    // --- 4. Logika Slider Gambar Section About (Mind Space) ---
+    const aboutImages = [
+        document.getElementById('about-img-1'),
+        document.getElementById('about-img-2'),
+        document.getElementById('about-img-3'),
+        document.getElementById('about-img-4')
+    ];
+
+    let currentAboutIndex = 0;
+
+    // Transisi gambar setiap 4 detik (bisa kamu sesuaikan)
+    setInterval(() => {
+        // Fade out gambar saat ini
+        aboutImages[currentAboutIndex].classList.remove('opacity-100');
+        aboutImages[currentAboutIndex].classList.add('opacity-0');
+
+        // Pindah ke indeks berikutnya, kembali ke 0 jika sudah di akhir
+        currentAboutIndex = (currentAboutIndex + 1) % aboutImages.length;
+
+        // Fade in gambar berikutnya
+        aboutImages[currentAboutIndex].classList.remove('opacity-0');
+        aboutImages[currentAboutIndex].classList.add('opacity-100');
+    }, 2000);
 });
