@@ -1,0 +1,13 @@
+/* --- style.css --- */
+
+/* Mengatur teks menjadi orientasi vertikal dari atas ke bawah */
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+/* Base reset untuk memastikan tidak ada margin sisa */
+html, body {
+    margin: 0;
+    padding: 0;
+}
