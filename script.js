@@ -1,14 +1,10 @@
-// --- script.js ---
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- 1. Logika Slider Gambar Hero ---
     const images = [
         document.getElementById('hero-img-1'),
         document.getElementById('hero-img-2'),
         document.getElementById('hero-img-3')
     ];
-
     let currentIndex = 0;
 
     setInterval(() => {
@@ -21,33 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
         images[currentIndex].classList.add('opacity-100');
     }, 4000);
 
-    // --- 2. Logika Hamburger Menu Mobile ---
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const spans = hamburgerBtn.querySelectorAll('span');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    // Fungsi untuk Toggle Menu dan Animasi Ikon X
     function toggleMenu() {
-        // Slide menu masuk/keluar
         mobileMenu.classList.toggle('translate-x-full');
         mobileMenu.classList.toggle('translate-x-0');
 
-        // Animasi Span 1 (Garis atas memutar)
         spans[0].classList.toggle('translate-y-[9px]');
         spans[0].classList.toggle('rotate-45');
 
-        // Animasi Span 2 (Garis tengah menghilang)
         spans[1].classList.toggle('opacity-0');
 
-        // Animasi Span 3 (Garis bawah memutar berlawanan)
         spans[2].classList.toggle('-translate-y-[9px]');
         spans[2].classList.toggle('-rotate-45');
     }
 
     hamburgerBtn.addEventListener('click', toggleMenu);
 
-    // Menutup menu otomatis jika salah satu link diklik
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (!mobileMenu.classList.contains('translate-x-full')) {
@@ -56,37 +45,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
-    // --- 3. Logika Smart Sticky Navbar & Color Transition ---
     const mainNavbar = document.getElementById('main-navbar');
     const navLinks = document.querySelectorAll('.nav-link');
     const hamburgerSpans = document.querySelectorAll('#hamburger-btn span');
-
     let lastScrollY = window.scrollY;
 
     window.addEventListener('scroll', () => {
         let currentScrollY = window.scrollY;
 
-        // PERBAIKAN: Lepaskan kunci animasi saat user mulai scroll
         if (mainNavbar.classList.contains('animate-slide-down')) {
             mainNavbar.classList.remove('animate-slide-down');
-            mainNavbar.classList.remove('opacity-0'); // Hapus class opacity-0 awal
-            mainNavbar.style.animation = 'none';      // Matikan paksa sisa keyframe
+            mainNavbar.classList.remove('opacity-0');
+            mainNavbar.style.animation = 'none';
         }
 
-        // Fitur 1: Sembunyikan saat scroll ke bawah, Munculkan saat scroll ke atas
-        // Batas 80px agar tidak berkedip jika user baru sedikit scroll dari paling atas
         if (currentScrollY > lastScrollY && currentScrollY > 80) {
-            mainNavbar.classList.add('-translate-y-full'); // Sembunyikan ke atas
+            mainNavbar.classList.add('-translate-y-full');
         } else {
-            mainNavbar.classList.remove('-translate-y-full'); // Munculkan kembali
+            mainNavbar.classList.remove('-translate-y-full');
         }
 
-        // Fitur 2: Ganti warna saat melewati Hero Section
-        const heroHeight = window.innerHeight - 100; // Tinggi 1 layar dikurangi toleransi
+        const heroHeight = window.innerHeight - 100;
 
         if (currentScrollY > heroHeight) {
-            // TEMA PINK & GLASS
             mainNavbar.classList.remove('text-brand-white', 'bg-transparent', 'border-transparent');
             mainNavbar.classList.add('text-brand-pink', 'bg-brand-white/80', 'backdrop-blur-md', 'border-brand-pink/10', 'shadow-sm');
 
@@ -100,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 span.classList.add('bg-brand-pink');
             });
         } else {
-            // TEMA PUTIH & TRANSPARAN
             mainNavbar.classList.add('text-brand-white', 'bg-transparent', 'border-transparent');
             mainNavbar.classList.remove('text-brand-pink', 'bg-brand-white/80', 'backdrop-blur-md', 'border-brand-pink/10', 'shadow-sm');
 
@@ -115,31 +95,81 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Update posisi terakhir
         lastScrollY = currentScrollY;
     });
 
-    // --- 4. Logika Slider Gambar Section About (Mind Space) ---
     const aboutImages = [
         document.getElementById('about-img-1'),
         document.getElementById('about-img-2'),
         document.getElementById('about-img-3'),
         document.getElementById('about-img-4')
     ];
-
     let currentAboutIndex = 0;
 
-    // Transisi gambar setiap 4 detik (bisa kamu sesuaikan)
     setInterval(() => {
-        // Fade out gambar saat ini
         aboutImages[currentAboutIndex].classList.remove('opacity-100');
         aboutImages[currentAboutIndex].classList.add('opacity-0');
 
-        // Pindah ke indeks berikutnya, kembali ke 0 jika sudah di akhir
         currentAboutIndex = (currentAboutIndex + 1) % aboutImages.length;
 
-        // Fade in gambar berikutnya
         aboutImages[currentAboutIndex].classList.remove('opacity-0');
         aboutImages[currentAboutIndex].classList.add('opacity-100');
     }, 2000);
+});
+
+// --- 5. Logika Scroll Line Drawing & Locked Reveal (Section Isi) ---
+
+// Konfigurasi Intersection Observer untuk Teks & Gambar (Muncul dan Kunci)
+const revealOptions = { threshold: 0.2 };
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, revealOptions);
+
+document.querySelectorAll('.reveal-lock').forEach(item => {
+    revealObserver.observe(item);
+});
+
+// PERBAIKAN: Menyiapkan SVG untuk animasi Clip-Path Reveal
+const scrollSvgs = document.querySelectorAll('.scroll-svg');
+
+const isiSection = document.getElementById('isi');
+const uiDots = [
+    { el: document.getElementById('ui-dot-1'), triggerPos: 0.25 },
+    { el: document.getElementById('ui-dot-2'), triggerPos: 0.60 },
+    { el: document.getElementById('ui-dot-3'), triggerPos: 0.90 }
+];
+
+window.addEventListener('scroll', () => {
+    if (!isiSection) return;
+
+    const rect = isiSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    const startDraw = windowHeight * 0.75;
+    const scrollDistance = rect.height * 0.85;
+
+    let scrollPercent = (startDraw - rect.top) / scrollDistance;
+    scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+
+    // PERBAIKAN: Menarik "kain penutup" (clip-path) ke bawah seiring scroll
+    const clipPercent = 100 - (scrollPercent * 100);
+    scrollSvgs.forEach(svg => {
+        svg.style.clipPath = `inset(0 0 ${clipPercent}% 0)`;
+        svg.style.webkitClipPath = `inset(0 0 ${clipPercent}% 0)`; // Dukungan untuk browser Safari
+    });
+
+    uiDots.forEach(dot => {
+        if (scrollPercent >= dot.triggerPos) {
+            dot.el.classList.remove('scale-0');
+            dot.el.classList.add('scale-100');
+        } else {
+            dot.el.classList.add('scale-0');
+            dot.el.classList.remove('scale-100');
+        }
+    });
 });

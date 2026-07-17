@@ -1,13 +1,22 @@
-/* --- style.css --- */
-
-/* Mengatur teks menjadi orientasi vertikal dari atas ke bawah */
 .vertical-text {
     writing-mode: vertical-rl;
     text-orientation: mixed;
 }
 
-/* Base reset untuk memastikan tidak ada margin sisa */
 html, body {
     margin: 0;
     padding: 0;
+}
+
+/* State awal konten tersembunyi di bawah */
+.reveal-lock {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* State konten setelah muncul (dikunci oleh JS) */
+.reveal-lock.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }

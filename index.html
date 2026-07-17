@@ -7,7 +7,9 @@
     <title>Mental Health - Mind Space</title>
 
     <!-- Favicon -->
+    <!-- Image Source: Local Asset - Brand Logo -->
     <link rel="icon" type="image/png" href="assets/logo.png">
+
     <!-- Google Fonts: Playfair Display & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +20,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind Custom Configuration with Animations -->
+    <!-- Tailwind Custom Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -31,7 +33,6 @@
                         'playfair': ['"Playfair Display"', 'serif'],
                         'inter': ['"Inter"', 'sans-serif'],
                     },
-                    // Kumpulan keyframes untuk animasi awal (opening)
                     keyframes: {
                         slideRight: {
                             '0%': { opacity: '0', transform: 'translateX(-50px)' },
@@ -52,15 +53,20 @@
                         zoomOut: {
                             '0%': { transform: 'scale(1.1)' },
                             '100%': { transform: 'scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
                         }
                     },
-                    // Mendaftarkan animasi agar bisa dipanggil lewat class
                     animation: {
                         'slide-right': 'slideRight 1s ease-out forwards',
                         'slide-left': 'slideLeft 1s ease-out forwards',
                         'slide-down': 'slideDown 0.8s ease-out forwards',
                         'slide-up': 'slideUp 1s ease-out forwards',
                         'zoom-out': 'zoomOut 1.5s ease-out forwards',
+                        'float': 'float 4s ease-in-out infinite',
+                        'float-delayed': 'float 4s ease-in-out 2s infinite',
                     }
                 }
             }
@@ -73,31 +79,32 @@
 
 <body class="bg-brand-pink text-brand-white font-inter antialiased min-h-screen overflow-x-hidden">
 
-    <!-- Hero Section (Section 1) -->
+    <!-- Hero Section -->
     <section class="relative w-full h-screen overflow-hidden flex flex-col">
 
-        <!-- Full Screen Background Image Slider (z-0) -->
-        <!-- Menambahkan animasi zoom-out agar gambar terasa "membuka" perlahan -->
+        <!-- Background Image Slider -->
         <div class="absolute inset-0 z-0 bg-brand-pink overflow-hidden">
             <div class="w-full h-full animate-zoom-out relative">
+                <!-- Image Source: Unsplash - Hands holding fairy lights -->
                 <img id="hero-img-1" src="assets/hero-img-1.png" alt="Hero 1"
                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100">
+                <!-- Image Source: Unsplash - Calm nature/mindfulness concept -->
                 <img id="hero-img-2" src="assets/hero-img-2.png" alt="Hero 2"
                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
+                <!-- Image Source: Unsplash - Abstract warm bokeh lights -->
                 <img id="hero-img-3" src="assets/hero-img-3.png" alt="Hero 3"
                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
 
-                <!-- Overlay tipis untuk kontras teks -->
                 <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
             </div>
         </div>
 
-        <!-- Navbar & Mobile Menu Overlay (z-50) -->
+        <!-- Main Navbar -->
         <nav id="main-navbar"
             class="fixed top-0 inset-x-0 z-[100] w-full px-6 md:px-12 py-5 flex justify-between md:justify-center items-center text-brand-white bg-transparent border-transparent transition-all duration-300 transform translate-y-0 opacity-0 animate-slide-down"
             style="animation-delay: 0.2s;">
-
             <a href="#" class="md:absolute md:left-12 z-50 flex items-center group">
+                <!-- Image Source: Local Asset - Brand Logo -->
                 <img id="nav-logo" src="assets/logo.png" alt="Logo Mind Space"
                     class="h-10 w-auto transition-all duration-300 group-hover:scale-110">
             </a>
@@ -123,6 +130,7 @@
             </button>
         </nav>
 
+        <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="fixed inset-0 bg-brand-white/95 backdrop-blur-xl z-[90] flex flex-col items-center justify-center transform translate-x-full transition-transform duration-500 ease-in-out md:hidden text-brand-pink">
             <div class="flex flex-col gap-8 text-center font-playfair text-3xl">
@@ -133,14 +141,14 @@
             </div>
 
             <div class="absolute bottom-10 flex flex-col items-center opacity-70">
+                <!-- Image Source: Local Asset - Brand Logo -->
                 <img src="assets/logo.png" alt="Logo Mind Space" class="h-12 w-auto mb-2">
                 <span class="font-playfair text-sm tracking-widest text-brand-pink">MINDS PACE</span>
             </div>
         </div>
 
-        <!-- Typography & UI Elements (z-10) -->
+        <!-- Typography & UI Elements -->
         <div class="relative z-40 flex-grow w-full h-full">
-
             <h1 class="absolute top-24 left-6 md:top-28 md:left-20 text-6xl md:text-[7rem] lg:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-right transition-transform duration-300 hover:scale-105 cursor-default origin-top-left"
                 style="animation-delay: 0.5s;">
                 MENTAL
@@ -157,48 +165,59 @@
                 style="animation-delay: 0.9s;">
                 <div class="w-6 h-6 md:w-8 md:h-8 bg-brand-white rounded-full shadow-sm"></div>
                 <p class="font-playfair text-lg md:text-2xl leading-tight font-semibold mt-1 drop-shadow-md">
-                    High<br>Cortisol.</p>
+                    High<br>Cortisol.
+                </p>
             </div>
-
         </div>
     </section>
 
+    <!-- About Section (Mind Space) -->
     <section id="tentang" class="relative w-full bg-brand-white text-brand-pink py-16 lg:py-32 overflow-hidden">
-
         <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
             <div
                 class="lg:col-span-3 flex flex-row lg:flex-col justify-center items-center lg:items-stretch gap-4 md:gap-8 lg:gap-20 relative order-1 z-10 mb-4 lg:mb-0">
-
                 <div class="w-36 md:w-48 lg:w-56 lg:self-start overflow-hidden bg-gray-100 rounded-sm">
+                    <!-- Image Source: Unsplash - Minimalist white chair -->
                     <img src="assets/about-img-1.png" alt="Kursi Minimalis"
                         class="w-full h-auto object-cover aspect-square transition-transform duration-700 hover:scale-105">
                 </div>
 
                 <div class="w-40 md:w-56 lg:w-72 lg:self-end lg:-mr-16 overflow-hidden bg-gray-100 rounded-sm">
+                    <!-- Image Source: Unsplash - Potted aloe vera and cactus -->
                     <img src="assets/about-img-2.png" alt="Tanaman Hias"
                         class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-700 hover:scale-105">
                 </div>
             </div>
 
             <div class="lg:col-span-5 flex flex-col justify-center relative order-2 z-20">
-
+                <!-- Area Tengah: Judul yang Seimbang & Center secara Blok -->
                 <div class="flex flex-col w-full max-w-lg mx-auto">
 
-                    <div class="flex items-center w-full relative">
+                    <!-- Baris 1: Mind (Rata Kiri) -->
+                    <div class="flex items-center w-full relative justify-start">
                         <h2
                             class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide pr-4 md:pr-6">
-                            Mind</h2>
+                            Mind
+                        </h2>
                         <div class="flex-grow h-[1px] bg-brand-pink origin-left"></div>
                     </div>
 
-                    <div class="flex items-center w-full relative mt-1 md:-mt-4">
-                        <div class="absolute right-full mr-6 w-[100vw] h-[1px] bg-brand-pink hidden md:block"></div>
-                        <div class="flex-grow h-[1px] bg-brand-pink md:hidden"></div>
+                    <!-- Baris 2: Space (Rata Kanan pada md & lg agar seimbang dari kiri ke kanan) -->
+                    <!-- PERBAIKAN: Menambahkan justify-end dan menyesuaikan margin mt-2 md:-mt-2 -->
+                    <div class="flex items-center w-full relative mt-2 md:-mt-2 justify-end">
+                        <!-- Garis dekoratif luar layar HANYA untuk desktop (lg:block) -->
+                        <div class="absolute right-full w-[100vw] h-[1px] bg-brand-pink hidden lg:block"></div>
+
+                        <!-- PERBAIKAN: md:hidden dihapus agar garis dalam tetap muncul di tablet dan mendorong teks ke kanan -->
+                        <div class="flex-grow h-[1px] bg-brand-pink"></div>
+
                         <h2
                             class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide pl-4 md:pl-6">
-                            Space</h2>
+                            Space
+                        </h2>
                     </div>
+
                 </div>
 
                 <p
@@ -210,27 +229,31 @@
 
                 <div class="mt-8 md:mt-10 flex justify-center">
                     <a href="#"
-                        class="inline-block px-10 py-3 md:px-12 md:py-3.5 rounded-full border border-brand-pink text-brand-pink font-inter font-medium text-sm md:text-base transition-all duration-300 hover:bg-brand-pink hover:text-brand-white hover:shadow-lg hover:-translate-y-1">
-                        Lihat lebih lanjut
+                        class="relative overflow-hidden inline-block px-10 py-3 md:px-12 md:py-3.5 rounded-full border border-brand-pink text-brand-pink font-inter font-medium text-sm md:text-base transition-colors duration-300 hover:text-brand-white hover:shadow-lg group">
+                        <span
+                            class="absolute inset-0 bg-brand-pink -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></span>
+                        <span class="relative z-10">Lihat lebih lanjut</span>
                     </a>
                 </div>
             </div>
 
             <div
                 class="lg:col-span-4 flex justify-center lg:justify-end order-3 z-10 h-full min-h-[350px] lg:min-h-[650px] w-full mt-6 lg:mt-0">
-
                 <div
                     class="relative w-full max-w-[16rem] md:max-w-sm lg:max-w-md h-[350px] lg:h-[650px] overflow-hidden bg-gray-100 rounded-sm group shadow-sm">
-
+                    <!-- Image Source: Unsplash - Woman holding sheer white fabric 1 -->
                     <img id="about-img-1" src="assets/about-img-3.jpg" alt="Konsep Mind Space 1"
                         class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-100 group-hover:scale-105">
 
+                    <!-- Image Source: Unsplash - Woman holding sheer white fabric 2 -->
                     <img id="about-img-2" src="assets/about-img-4.jpg" alt="Konsep Mind Space 2"
                         class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
 
+                    <!-- Image Source: Unsplash - Woman holding sheer white fabric 3 -->
                     <img id="about-img-3" src="assets/about-img-5.jpg" alt="Konsep Mind Space 3"
                         class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
 
+                    <!-- Image Source: Unsplash - Woman holding sheer white fabric 4 -->
                     <img id="about-img-4" src="assets/about-img-6.jpg" alt="Konsep Mind Space 4"
                         class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
                 </div>
@@ -239,134 +262,113 @@
         </div>
     </section>
 
-    <section id="tentang" class="relative w-full bg-brand-white text-brand-pink py-16 lg:py-32 overflow-hidden">
+    <!-- Section 3: Isi (Preventif, Kuratif, Rehabilitasi) -->
+    <!-- Mengatur tinggi minimum agar tata letak persentase presisi di Desktop dan Mobile -->
+    <section id="isi" class="relative w-full bg-brand-white py-20 overflow-hidden h-[1300px] md:h-[1800px]">
 
-        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- 1. SVG PATH UNTUK DESKTOP (S-Curve) -->
+        <!-- Menggunakan trik clip-path inset untuk menutupi garis dari bawah -->
+        <svg class="scroll-svg hidden md:block absolute inset-0 w-full h-full pointer-events-none z-0"
+            preserveAspectRatio="none" viewBox="0 0 100 100"
+            style="clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); transition: clip-path 0.15s ease-out, -webkit-clip-path 0.15s ease-out;">
+            <path d="M -10,0 C 30,5 60,10 60,25 C 60,45 15,45 15,60 C 15,70 15,85 60,90" fill="none" stroke="#FF4081"
+                stroke-width="3" vector-effect="non-scaling-stroke" stroke-linecap="round"></path>
+        </svg>
 
-            <div
-                class="lg:col-span-3 flex flex-row lg:flex-col justify-center items-center lg:items-stretch gap-4 md:gap-8 lg:gap-20 relative order-1 z-10 mb-4 lg:mb-0">
+        <!-- 2. SVG PATH UNTUK MOBILE (Lurus di Kiri) -->
+        <svg class="scroll-svg md:hidden absolute inset-0 w-full h-full pointer-events-none z-0"
+            preserveAspectRatio="none" viewBox="0 0 100 100"
+            style="clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); transition: clip-path 0.15s ease-out, -webkit-clip-path 0.15s ease-out;">
+            <path d="M 15,0 L 15,100" fill="none" stroke="#FF4081" stroke-width="3" vector-effect="non-scaling-stroke"
+                stroke-linecap="round"></path>
+        </svg>
 
-                <div class="w-36 md:w-48 lg:w-56 lg:self-start overflow-hidden bg-gray-100 rounded-sm">
-                    <img src="assets/about-img-1.png" alt="Kursi Minimalis"
-                        class="w-full h-auto object-cover aspect-square transition-transform duration-700 hover:scale-105">
-                </div>
-
-                <div class="w-40 md:w-56 lg:w-72 lg:self-end lg:-mr-16 overflow-hidden bg-gray-100 rounded-sm">
-                    <img src="assets/about-img-2.png" alt="Tanaman Hias"
-                        class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-700 hover:scale-105">
-                </div>
-            </div>
-
-            <div class="lg:col-span-5 flex flex-col justify-center relative order-2 z-20">
-
-                <div class="flex flex-col w-full max-w-lg mx-auto">
-
-                    <div class="flex items-center w-full relative">
-                        <h2
-                            class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide pr-4 md:pr-6">
-                            Mind</h2>
-                        <div class="flex-grow h-[1px] bg-brand-pink origin-left"></div>
-                    </div>
-
-                    <div class="flex items-center w-full relative mt-1 md:-mt-4">
-                        <div class="absolute right-full mr-6 w-[100vw] h-[1px] bg-brand-pink hidden md:block"></div>
-                        <div class="flex-grow h-[1px] bg-brand-pink md:hidden"></div>
-                        <h2
-                            class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide pl-4 md:pl-6">
-                            Space</h2>
-                    </div>
-                </div>
-
-                <p
-                    class="mt-8 md:mt-14 text-center font-inter text-sm md:text-base leading-relaxed max-w-[400px] mx-auto opacity-95">
-                    Penyisihan Belum Dibuka Pengumpulan karya dimulai 19 September 2026 Kamu sudah terdaftar sebagai
-                    peserta. Siapkan link Google Drive karya tim kamu dari sekarang dan pastikan akses file sudah dibuka
-                    menjadi view.
-                </p>
-
-                <div class="mt-8 md:mt-10 flex justify-center">
-                    <a href="#"
-                        class="inline-block px-10 py-3 md:px-12 md:py-3.5 rounded-full border border-brand-pink text-brand-pink font-inter font-medium text-sm md:text-base transition-all duration-300 hover:bg-brand-pink hover:text-brand-white hover:shadow-lg hover:-translate-y-1">
-                        Lihat lebih lanjut
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="lg:col-span-4 flex justify-center lg:justify-end order-3 z-10 h-full min-h-[350px] lg:min-h-[650px] w-full mt-6 lg:mt-0">
-
-                <div class="w-full max-w-[16rem] md:max-w-sm lg:max-w-md h-full overflow-hidden bg-gray-100 rounded-sm">
-                    <img src="assets/about-img-3.jpg" alt="Konsep Mind Space"
-                        class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105">
-                </div>
-            </div>
-
+        <!-- UI DOTS (Mengikuti koordinat persentase dari garis SVG) -->
+        <!-- Dot 1: Preventif (Desktop: 60%x, 25%y | Mobile: 15%x, 20%y) -->
+        <div id="ui-dot-1"
+            class="absolute w-5 h-5 md:w-6 md:h-6 bg-brand-pink rounded-full transition-transform duration-300 scale-0 -translate-x-1/2 -translate-y-1/2 z-10 top-[20%] left-[15%] md:top-[25%] md:left-[60%] shadow-[0_0_15px_rgba(255,64,129,0.5)]">
         </div>
-    </section>
 
-    <section id="tentang" class="relative w-full bg-brand-white text-brand-pink py-16 lg:py-32 overflow-hidden">
-
-        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-
-            <div
-                class="lg:col-span-3 flex flex-row lg:flex-col justify-center items-center lg:items-stretch gap-4 md:gap-8 lg:gap-20 relative order-1 z-10 mb-4 lg:mb-0">
-
-                <div class="w-36 md:w-48 lg:w-56 lg:self-start overflow-hidden bg-gray-100 rounded-sm">
-                    <img src="assets/about-img-1.png" alt="Kursi Minimalis"
-                        class="w-full h-auto object-cover aspect-square transition-transform duration-700 hover:scale-105">
-                </div>
-
-                <div class="w-40 md:w-56 lg:w-72 lg:self-end lg:-mr-16 overflow-hidden bg-gray-100 rounded-sm">
-                    <img src="assets/about-img-2.png" alt="Tanaman Hias"
-                        class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-700 hover:scale-105">
-                </div>
-            </div>
-
-            <div class="lg:col-span-5 flex flex-col justify-center relative order-2 z-20">
-
-                <div class="flex flex-col w-full max-w-lg mx-auto">
-
-                    <div class="flex items-center w-full relative">
-                        <h2
-                            class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide pr-4 md:pr-6">
-                            Mind</h2>
-                        <div class="flex-grow h-[1px] bg-brand-pink origin-left"></div>
-                    </div>
-
-                    <div class="flex items-center w-full relative mt-1 md:-mt-4">
-                        <div class="absolute right-full mr-6 w-[100vw] h-[1px] bg-brand-pink hidden md:block"></div>
-                        <div class="flex-grow h-[1px] bg-brand-pink md:hidden"></div>
-                        <h2
-                            class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide pl-4 md:pl-6">
-                            Space</h2>
-                    </div>
-                </div>
-
-                <p
-                    class="mt-8 md:mt-14 text-center font-inter text-sm md:text-base leading-relaxed max-w-[400px] mx-auto opacity-95">
-                    Penyisihan Belum Dibuka Pengumpulan karya dimulai 19 September 2026 Kamu sudah terdaftar sebagai
-                    peserta. Siapkan link Google Drive karya tim kamu dari sekarang dan pastikan akses file sudah dibuka
-                    menjadi view.
-                </p>
-
-                <div class="mt-8 md:mt-10 flex justify-center">
-                    <a href="#"
-                        class="inline-block px-10 py-3 md:px-12 md:py-3.5 rounded-full border border-brand-pink text-brand-pink font-inter font-medium text-sm md:text-base transition-all duration-300 hover:bg-brand-pink hover:text-brand-white hover:shadow-lg hover:-translate-y-1">
-                        Lihat lebih lanjut
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="lg:col-span-4 flex justify-center lg:justify-end order-3 z-10 h-full min-h-[350px] lg:min-h-[650px] w-full mt-6 lg:mt-0">
-
-                <div class="w-full max-w-[16rem] md:max-w-sm lg:max-w-md h-full overflow-hidden bg-gray-100 rounded-sm">
-                    <img src="assets/about-img-3.jpg" alt="Konsep Mind Space"
-                        class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105">
-                </div>
-            </div>
-
+        <!-- Dot 2: Kuratif (Desktop: 15%x, 60%y | Mobile: 15%x, 50%y) -->
+        <div id="ui-dot-2"
+            class="absolute w-5 h-5 md:w-6 md:h-6 bg-brand-pink rounded-full transition-transform duration-300 scale-0 -translate-x-1/2 -translate-y-1/2 z-10 top-[50%] left-[15%] md:top-[60%] md:left-[15%] shadow-[0_0_15px_rgba(255,64,129,0.5)]">
         </div>
+
+        <!-- Dot 3: Rehabilitasi (Desktop: 60%x, 90%y | Mobile: 15%x, 80%y) -->
+        <!-- PERBAIKAN: md:left-[65%] diubah menjadi md:left-[60%] -->
+        <div id="ui-dot-3"
+            class="absolute w-5 h-5 md:w-6 md:h-6 bg-brand-pink rounded-full transition-transform duration-300 scale-0 -translate-x-1/2 -translate-y-1/2 z-10 top-[80%] left-[15%] md:top-[90%] md:left-[60%] shadow-[0_0_15px_rgba(255,64,129,0.5)]">
+        </div>
+
+        <!-- CONTAINER KONTEN (Teks & Gambar 3D) -->
+        <!-- Memanfaatkan Outer Wrapper (% posisi) dan Inner Wrapper (Animasi Muncul) -->
+
+        <!-- Item 1: Preventif -->
+        <!-- Outer: Sejajar dengan posisi Dot 1 -->
+        <div class="absolute w-[80%] md:w-[35%] -translate-y-1/2 z-20 top-[20%] left-[25%] md:top-[25%] md:left-[65%]">
+            <div class="reveal-lock flex flex-col md:flex-row items-start md:items-center relative">
+
+                <!-- Image Source: Local Asset - 3D Padlock -->
+                <div
+                    class="w-48 md:w-56 lg:w-72 mb-6 md:mb-0 md:absolute md:right-full md:mr-40 lg:mr-80 z-10 pointer-events-none">
+                    <img src="assets/isi-img-1.png" alt="Preventif Padlock"
+                        class="w-full h-auto drop-shadow-xl animate-float">
+                </div>
+
+                <div class="flex flex-col z-20 text-left">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-brand-pink mb-3 md:mb-4">
+                        Preventif</h2>
+                    <p class="text-brand-pink/90 font-inter text-sm md:text-base leading-relaxed">
+                        Penyisihan Belum Dibuka Pengumpulan karya dimulai 19 September 2026 Kamu sudah terdaftar sebagai
+                        peserta. Siapkan link Google
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2: Kuratif -->
+        <!-- Outer: Sejajar dengan posisi Dot 2 -->
+        <div class="absolute w-[80%] md:w-[35%] -translate-y-1/2 z-20 top-[50%] left-[25%] md:top-[60%] md:left-[20%]">
+            <div class="reveal-lock flex flex-col md:flex-row items-start md:items-center relative">
+
+                <div class="flex flex-col z-20 text-left">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-brand-pink mb-3 md:mb-4">
+                        Kuratif</h2>
+                    <p class="text-brand-pink/90 font-inter text-sm md:text-base leading-relaxed">
+                        Penyisihan Belum Dibuka Pengumpulan karya dimulai 19 September 2026 Kamu sudah terdaftar sebagai
+                        peserta. Siapkan link Google
+                    </p>
+                </div>
+
+                <!-- Image Source: Local Asset - 3D Tablet -->
+                <div
+                    class="w-48 md:w-64 mt-6 md:mt-0 md:absolute md:left-full md:ml-10 lg:ml-48 z-10 pointer-events-none">
+                    <img src="assets/isi-img-2.png" alt="Kuratif Tablet"
+                        class="w-full h-auto drop-shadow-xl animate-float-delayed">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Item 3: Rehabilitasi -->
+        <!-- Outer: Sejajar dengan posisi Dot 3 -->
+        <!-- PERBAIKAN: md:left-[70%] diubah menjadi md:left-[65%] -->
+        <div class="absolute w-[80%] md:w-[35%] -translate-y-1/2 z-20 top-[80%] left-[25%] md:top-[90%] md:left-[65%]">
+            <div class="reveal-lock flex flex-col md:flex-row items-start md:items-center relative">
+
+                <div class="flex flex-col z-20 text-left">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-brand-pink mb-3 md:mb-4">
+                        Rehabilitasi</h2>
+                    <p class="text-brand-pink/90 font-inter text-sm md:text-base leading-relaxed">
+                        Penyisihan Belum Dibuka Pengumpulan karya dimulai 19 September 2026 Kamu sudah terdaftar sebagai
+                        peserta. Siapkan link Google
+                    </p>
+                </div>
+                <!-- Sesuai gambar referensi, tidak ada aset spesifik di item 3 ini -->
+
+            </div>
+        </div>
+
     </section>
 
     <!-- External JS -->
