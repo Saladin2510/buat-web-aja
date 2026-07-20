@@ -371,7 +371,8 @@
     <section id="podcast" class="relative w-full bg-brand-white flex flex-col lg:block overflow-hidden">
 
         <!-- Area Kanan: Kotak Gambar (Image Slider Track) -->
-        <div class="w-full h-[350px] md:h-[500px] lg:absolute lg:top-0 lg:right-0 lg:bottom-0 lg:w-[50vw] lg:h-full z-10 overflow-hidden">
+        <!-- PERBAIKAN: Menambahkan reveal-element, opacity-0, dan translate-x-12 (geser dari kanan) -->
+        <div class="reveal-element opacity-0 translate-x-12 transition-all duration-1000 ease-out w-full h-[350px] md:h-[500px] lg:absolute lg:top-0 lg:right-0 lg:bottom-0 lg:w-[50vw] lg:h-full z-10 overflow-hidden">
             
             <!-- GAMBAR 1 (Aktif) -->
             <img src="assets/services-img-1.png" alt="Podcast Cover 1" 
@@ -390,7 +391,8 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-20 flex py-16 lg:py-32">
 
             <!-- Area Kiri: Teks & Tombol -->
-            <div class="w-full lg:w-1/2 flex flex-col justify-center lg:pr-12 xl:pr-20">
+            <!-- PERBAIKAN: Menambahkan reveal-element, opacity-0, translate-y-12 (naik dari bawah), dan delay-300 -->
+            <div class="reveal-element opacity-0 translate-y-12 transition-all duration-1000 delay-300 ease-out w-full lg:w-1/2 flex flex-col justify-center lg:pr-12 xl:pr-20">
                 
                 <!-- Wrapper Teks (Diberi min-height agar layout tidak melompat saat ganti teks) -->
                 <div class="relative w-full min-h-[220px] md:min-h-[250px]">
@@ -440,14 +442,14 @@
                     </a>
                     
                     <!-- Tombol Panah Kiri (Prev) -->
-                    <button id="slider-prev" class="p-2 text-brand-pink transition-transform duration-300 hover:-translate-x-1 focus:outline-none">
+                    <button id="slider-prev" class="p-2 text-brand-pink transition-transform duration-300 hover:-translate-x-1 focus:outline-none cursor-pointer">
                         <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
                         </svg>
                     </button>
 
                     <!-- Tombol Panah Kanan (Next) -->
-                    <button id="slider-next" class="p-2 text-brand-pink transition-transform duration-300 hover:translate-x-1 focus:outline-none">
+                    <button id="slider-next" class="p-2 text-brand-pink transition-transform duration-300 hover:translate-x-1 focus:outline-none cursor-pointer">
                         <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                         </svg>
