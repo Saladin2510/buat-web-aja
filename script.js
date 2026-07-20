@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideImgs = document.querySelectorAll('.slide-img');
     const btnNext = document.getElementById('slider-next');
     const btnPrev = document.getElementById('slider-prev');
-    
+
     // Memastikan elemen ada di halaman sebelum menjalankan script
     if (slideTexts.length === 0 || slideImgs.length === 0) return;
 
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slideTexts[currentIndex].classList.remove('opacity-100', 'translate-x-0', 'pointer-events-auto');
         slideTexts[currentIndex].classList.add('opacity-0', 'pointer-events-none');
         slideTexts[currentIndex].classList.add(direction === 'next' ? '-translate-x-8' : 'translate-x-8');
-        
+
         // Untuk Gambar: Beri efek zoom-out dan fade yang elegan
         slideImgs[currentIndex].classList.remove('opacity-100', 'scale-100');
         slideImgs[currentIndex].classList.add('opacity-0', 'scale-105');
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 2. Tampilkan Slide Baru
         slideTexts[index].classList.remove('opacity-0', 'pointer-events-none');
         slideTexts[index].classList.add('opacity-100', 'translate-x-0', 'pointer-events-auto');
-        
+
         slideImgs[index].classList.remove('opacity-0', 'scale-105');
         slideImgs[index].classList.add('opacity-100', 'scale-100');
 
@@ -226,5 +226,38 @@ document.addEventListener('DOMContentLoaded', () => {
         // Jika sedang di slide pertama, lompat ke slide terakhir (Looping)
         let prevIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
         goToSlide(prevIndex, 'prev');
+    });
+});
+
+// --- Logika Animasi Scroll Reveal ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Cari semua elemen yang memiliki class 'reveal-element'
+    const revealElements = document.querySelectorAll('.reveal-element');
+
+    // Pengaturan jarak pemicu animasi
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Animasi akan berjalan saat 15% bagian elemen terlihat di layar
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Hapus class yang menyembunyikan dan menggeser elemen
+                entry.target.classList.remove('opacity-0', '-translate-x-12', 'translate-x-12', 'translate-y-12', 'scale-x-0');
+
+                // Tambahkan class agar elemen muncul penuh di titik awal
+                entry.target.classList.add('opacity-100', 'translate-x-0', 'translate-y-0', 'scale-x-100');
+
+                // Hentikan pemantauan pada elemen ini agar animasi hanya terjadi satu kali
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Jalankan observer pada setiap elemen yang ditemukan
+    revealElements.forEach(el => {
+        observer.observe(el);
     });
 });

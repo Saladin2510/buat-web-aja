@@ -175,53 +175,51 @@
     <section id="tentang" class="relative w-full bg-brand-white text-brand-pink py-16 lg:py-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-            <div
-                class="lg:col-span-3 flex flex-row lg:flex-col justify-center items-center lg:items-stretch gap-4 md:gap-8 lg:gap-20 relative order-1 z-10 mb-4 lg:mb-0">
+            <!-- Area Kiri (Animasi geser dari kiri) -->
+            <div class="reveal-element opacity-0 -translate-x-12 transition-all duration-1000 ease-out lg:col-span-3 flex flex-row lg:flex-col justify-center items-center lg:items-stretch gap-4 md:gap-8 lg:gap-20 relative order-1 z-10 mb-4 lg:mb-0">
                 <div class="w-36 md:w-48 lg:w-56 lg:self-start overflow-hidden bg-gray-100 rounded-sm">
-                    <!-- Image Source: Unsplash - Minimalist white chair -->
                     <img src="assets/about-img-1.png" alt="Kursi Minimalis"
                         class="w-full h-auto object-cover aspect-square transition-transform duration-700 hover:scale-105">
                 </div>
 
                 <div class="w-40 md:w-56 lg:w-72 lg:self-end lg:-mr-16 overflow-hidden bg-gray-100 rounded-sm">
-                    <!-- Image Source: Unsplash - Potted aloe vera and cactus -->
                     <img src="assets/about-img-2.png" alt="Tanaman Hias"
                         class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-700 hover:scale-105">
                 </div>
             </div>
 
-            <div class="lg:col-span-5 flex flex-col justify-center relative order-2 z-20">
+            <!-- Area Tengah (Animasi naik dari bawah dengan delay 300ms) -->
+            <div class="reveal-element opacity-0 translate-y-12 transition-all duration-1000 delay-300 ease-out lg:col-span-5 flex flex-col justify-center relative order-2 z-20">
+                
                 <!-- Area Tengah: Judul yang Seimbang & Center secara Blok -->
                 <div class="flex flex-col w-full max-w-lg mx-auto">
 
                     <!-- Baris 1: Mind (Rata Kiri) -->
-                    <div class="flex items-center w-full relative justify-start">
-                        <h2
-                            class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide pr-4 md:pr-6">
+                    <div class="flex items-center w-full relative justify-center md:justify-start">
+                        <h2 class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide md:pr-6">
                             Mind
                         </h2>
-                        <div class="flex-grow h-[1px] bg-brand-pink origin-left"></div>
+                        <!-- PERBAIKAN: Tambah reveal-element, scale-x-0, dan origin-left -->
+                        <div class="reveal-element opacity-0 scale-x-0 origin-left transition-all duration-1000 delay-500 hidden md:block flex-grow h-[1px] bg-brand-pink"></div>
                     </div>
 
-                    <!-- Baris 2: Space (Rata Kanan pada md & lg agar seimbang dari kiri ke kanan) -->
-                    <!-- PERBAIKAN: Menambahkan justify-end dan menyesuaikan margin mt-2 md:-mt-2 -->
-                    <div class="flex items-center w-full relative mt-2 md:-mt-2 justify-end">
-                        <!-- Garis dekoratif luar layar HANYA untuk desktop (lg:block) -->
-                        <div class="absolute right-full w-[100vw] h-[1px] bg-brand-pink hidden lg:block"></div>
-
-                        <!-- PERBAIKAN: md:hidden dihapus agar garis dalam tetap muncul di tablet dan mendorong teks ke kanan -->
-                        <div class="flex-grow h-[1px] bg-brand-pink"></div>
-
-                        <h2
-                            class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide pl-4 md:pl-6">
+                    <!-- Baris 2: Space (Rata Kanan pada md & lg) -->
+                    <div class="flex items-center w-full relative mt-0 md:-mt-2 justify-center md:justify-end">
+                        <!-- Garis dekoratif luar layar -->
+                        <!-- PERBAIKAN: Tambah reveal-element, scale-x-0, dan origin-right -->
+                        <div class="reveal-element opacity-0 scale-x-0 origin-right transition-all duration-1000 delay-500 absolute right-full w-[100vw] h-[1px] bg-brand-pink hidden lg:block"></div>
+                        
+                        <!-- Garis dalam -->
+                        <div class="reveal-element opacity-0 scale-x-0 origin-right transition-all duration-1000 delay-500 hidden md:block flex-grow h-[1px] bg-brand-pink"></div>
+                        
+                        <h2 class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide md:pl-6">
                             Space
                         </h2>
                     </div>
 
                 </div>
 
-                <p
-                    class="mt-8 md:mt-14 text-center font-inter text-sm md:text-base leading-relaxed max-w-[400px] mx-auto opacity-95">
+                <p class="mt-8 md:mt-14 text-center font-inter text-sm md:text-base leading-relaxed max-w-[400px] mx-auto opacity-95">
                     Penyisihan Belum Dibuka Pengumpulan karya dimulai 19 September 2026 Kamu sudah terdaftar sebagai
                     peserta. Siapkan link Google Drive karya tim kamu dari sekarang dan pastikan akses file sudah dibuka
                     menjadi view.
@@ -237,23 +235,19 @@
                 </div>
             </div>
 
-            <div
-                class="lg:col-span-4 flex justify-center lg:justify-end order-3 z-10 h-full min-h-[350px] lg:min-h-[650px] w-full mt-6 lg:mt-0">
+            <!-- Area Kanan (Animasi geser dari kanan dengan delay 500ms) -->
+            <div class="reveal-element opacity-0 translate-x-12 transition-all duration-1000 delay-500 ease-out lg:col-span-4 flex justify-center lg:justify-end order-3 z-10 h-full min-h-[350px] lg:min-h-[650px] w-full mt-6 lg:mt-0">
                 <div
                     class="relative w-full max-w-[16rem] md:max-w-sm lg:max-w-md h-[350px] lg:h-[650px] overflow-hidden bg-gray-100 rounded-sm group shadow-sm">
-                    <!-- Image Source: Unsplash - Woman holding sheer white fabric 1 -->
                     <img id="about-img-1" src="assets/about-img-3.jpg" alt="Konsep Mind Space 1"
                         class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-100 group-hover:scale-105">
 
-                    <!-- Image Source: Unsplash - Woman holding sheer white fabric 2 -->
                     <img id="about-img-2" src="assets/about-img-4.jpg" alt="Konsep Mind Space 2"
                         class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
 
-                    <!-- Image Source: Unsplash - Woman holding sheer white fabric 3 -->
                     <img id="about-img-3" src="assets/about-img-5.jpg" alt="Konsep Mind Space 3"
                         class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
 
-                    <!-- Image Source: Unsplash - Woman holding sheer white fabric 4 -->
                     <img id="about-img-4" src="assets/about-img-6.jpg" alt="Konsep Mind Space 4"
                         class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
                 </div>
