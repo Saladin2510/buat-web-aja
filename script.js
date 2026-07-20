@@ -173,3 +173,58 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// --- Logika Slider Section Podcast/Layanan ---
+document.addEventListener('DOMContentLoaded', () => {
+    const slideTexts = document.querySelectorAll('.slide-text');
+    const slideImgs = document.querySelectorAll('.slide-img');
+    const btnNext = document.getElementById('slider-next');
+    const btnPrev = document.getElementById('slider-prev');
+    
+    // Memastikan elemen ada di halaman sebelum menjalankan script
+    if (slideTexts.length === 0 || slideImgs.length === 0) return;
+
+    let currentIndex = 0;
+    const totalSlides = slideTexts.length;
+
+    function goToSlide(index, direction) {
+        // 1. Sembunyikan Slide Saat Ini
+        // Untuk Teks: Hilangkan opacity dan geser menjauh
+        slideTexts[currentIndex].classList.remove('opacity-100', 'translate-x-0', 'pointer-events-auto');
+        slideTexts[currentIndex].classList.add('opacity-0', 'pointer-events-none');
+        slideTexts[currentIndex].classList.add(direction === 'next' ? '-translate-x-8' : 'translate-x-8');
+        
+        // Untuk Gambar: Beri efek zoom-out dan fade yang elegan
+        slideImgs[currentIndex].classList.remove('opacity-100', 'scale-100');
+        slideImgs[currentIndex].classList.add('opacity-0', 'scale-105');
+
+        // Bersihkan class transisi dari slide BARU yang akan masuk
+        slideTexts[index].classList.remove('-translate-x-8', 'translate-x-8');
+
+        // 2. Tampilkan Slide Baru
+        slideTexts[index].classList.remove('opacity-0', 'pointer-events-none');
+        slideTexts[index].classList.add('opacity-100', 'translate-x-0', 'pointer-events-auto');
+        
+        slideImgs[index].classList.remove('opacity-0', 'scale-105');
+        slideImgs[index].classList.add('opacity-100', 'scale-100');
+
+        // Perbarui Index
+        currentIndex = index;
+    }
+
+    // Event Listener untuk Klik Panah Kanan
+    btnNext.addEventListener('click', (e) => {
+        e.preventDefault(); // Mencegah halaman melompat ke atas
+        // Jika sudah di slide terakhir, kembali ke 0 (Looping)
+        let nextIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+        goToSlide(nextIndex, 'next');
+    });
+
+    // Event Listener untuk Klik Panah Kiri
+    btnPrev.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Jika sedang di slide pertama, lompat ke slide terakhir (Looping)
+        let prevIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+        goToSlide(prevIndex, 'prev');
+    });
+});
