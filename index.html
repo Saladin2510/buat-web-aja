@@ -6,21 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health - Mind Space</title>
 
-    <!-- Favicon -->
-    <!-- Image Source: Local Asset - Brand Logo -->
     <link rel="icon" type="image/png" href="assets/logo.png">
 
-    <!-- Google Fonts: Playfair Display & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind Custom Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -73,66 +66,41 @@
         }
     </script>
 
-    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-brand-pink text-brand-white font-inter antialiased min-h-screen overflow-x-hidden">
 
-    <!-- Hero Section -->
     <section class="relative w-full h-screen overflow-hidden flex flex-col">
-
-        <!-- Background Image Slider -->
         <div class="absolute inset-0 z-0 bg-brand-pink overflow-hidden">
             <div class="w-full h-full animate-zoom-out relative">
-                <!-- Image Source: Unsplash - Hands holding fairy lights -->
-                <img id="hero-img-1" src="assets/hero-img-1.png" alt="Hero 1"
-                    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100">
-                <!-- Image Source: Unsplash - Calm nature/mindfulness concept -->
-                <img id="hero-img-2" src="assets/hero-img-2.png" alt="Hero 2"
-                    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
-                <!-- Image Source: Unsplash - Abstract warm bokeh lights -->
-                <img id="hero-img-3" src="assets/hero-img-3.png" alt="Hero 3"
-                    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
-
+                <img id="hero-img-1" src="assets/hero-img-1.png" alt="Hero 1" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-100">
+                <img id="hero-img-2" src="assets/hero-img-2.png" alt="Hero 2" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
+                <img id="hero-img-3" src="assets/hero-img-3.png" alt="Hero 3" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out opacity-0">
                 <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
             </div>
         </div>
 
-        <!-- Main Navbar -->
-        <nav id="main-navbar"
-            class="fixed top-0 inset-x-0 z-[100] w-full px-6 md:px-12 py-5 flex justify-between md:justify-center items-center text-brand-white bg-transparent border-transparent transition-all duration-300 transform translate-y-0 opacity-0 animate-slide-down"
-            style="animation-delay: 0.2s;">
+        <nav id="main-navbar" class="fixed top-0 inset-x-0 z-[100] w-full px-6 md:px-12 py-5 flex justify-between md:justify-center items-center text-brand-white bg-transparent border-transparent transition-all duration-300 transform translate-y-0 opacity-0 animate-slide-down" style="animation-delay: 0.2s;">
             <a href="#" class="md:absolute md:left-12 z-50 flex items-center group">
-                <!-- Image Source: Local Asset - Brand Logo -->
-                <img id="nav-logo" src="assets/logo.png" alt="Logo Mind Space"
-                    class="h-10 w-auto transition-all duration-300 group-hover:scale-110">
+                <img id="nav-logo" src="assets/logo.png" alt="Logo Mind Space" class="h-10 w-auto transition-all duration-300 group-hover:scale-110">
             </a>
 
             <div class="hidden md:flex gap-2 lg:gap-8 font-playfair text-lg lg:text-xl font-medium">
-                <a href="#"
-                    class="nav-link px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 border-b-2 border-transparent hover:border-brand-white">Beranda</a>
-                <a href="#"
-                    class="nav-link px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 border-b-2 border-transparent hover:border-brand-white">Tentang</a>
-                <a href="#"
-                    class="nav-link px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 border-b-2 border-transparent hover:border-brand-white">Isi</a>
-                <a href="#"
-                    class="nav-link px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 border-b-2 border-transparent hover:border-brand-white">Hubungi</a>
+                <a href="#" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 border-b-2 border-transparent hover:border-brand-white">Beranda</a>
+                <a href="#" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 border-b-2 border-transparent hover:border-brand-white">Tentang</a>
+                <a href="#" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 border-b-2 border-transparent hover:border-brand-white">Isi</a>
+                <a href="#" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white/20 border-b-2 border-transparent hover:border-brand-white">Hubungi</a>
             </div>
 
-            <button id="hamburger-btn"
-                class="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 z-50 focus:outline-none">
-                <span
-                    class="w-7 h-[3px] bg-brand-white rounded-full transition-all duration-300 ease-in-out transform origin-center"></span>
+            <button id="hamburger-btn" class="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 z-50 focus:outline-none">
+                <span class="w-7 h-[3px] bg-brand-white rounded-full transition-all duration-300 ease-in-out transform origin-center"></span>
                 <span class="w-7 h-[3px] bg-brand-white rounded-full transition-all duration-300 ease-in-out"></span>
-                <span
-                    class="w-7 h-[3px] bg-brand-white rounded-full transition-all duration-300 ease-in-out transform origin-center"></span>
+                <span class="w-7 h-[3px] bg-brand-white rounded-full transition-all duration-300 ease-in-out transform origin-center"></span>
             </button>
         </nav>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="fixed inset-0 bg-brand-white/95 backdrop-blur-xl z-[90] flex flex-col items-center justify-center transform translate-x-full transition-transform duration-500 ease-in-out md:hidden text-brand-pink">
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-white/95 backdrop-blur-xl z-[90] flex flex-col items-center justify-center transform translate-x-full transition-transform duration-500 ease-in-out md:hidden text-brand-pink">
             <div class="flex flex-col gap-8 text-center font-playfair text-3xl">
                 <a href="#" class="mobile-link hover:text-brand-pink/70 transition-colors">Beranda</a>
                 <a href="#" class="mobile-link hover:text-brand-pink/70 transition-colors">Tentang</a>
@@ -141,28 +109,23 @@
             </div>
 
             <div class="absolute bottom-10 flex flex-col items-center opacity-70">
-                <!-- Image Source: Local Asset - Brand Logo -->
                 <img src="assets/logo.png" alt="Logo Mind Space" class="h-12 w-auto mb-2">
                 <span class="font-playfair text-sm tracking-widest text-brand-pink">MINDS PACE</span>
             </div>
         </div>
 
-        <!-- Typography & UI Elements -->
         <div class="relative z-40 flex-grow w-full h-full">
-            <h1 class="absolute top-24 left-6 md:top-28 md:left-20 text-6xl md:text-[7rem] lg:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-right transition-transform duration-300 hover:scale-105 cursor-default origin-top-left"
-                style="animation-delay: 0.5s;">
+            <h1 class="absolute top-24 left-6 md:top-28 md:left-20 text-6xl md:text-[7rem] lg:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-right transition-transform duration-300 hover:scale-105 cursor-default origin-top-left" style="animation-delay: 0.5s;">
                 MENTAL
             </h1>
 
             <div class="absolute inset-y-0 right-2 md:right-10 flex flex-col justify-center z-50">
-                <h1 class="vertical-text text-6xl md:text-[7rem] lg:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-left transition-transform duration-300 hover:scale-105 cursor-default origin-center"
-                    style="animation-delay: 0.7s;">
+                <h1 class="vertical-text text-6xl md:text-[7rem] lg:text-[8rem] font-playfair font-bold leading-none tracking-widest drop-shadow-lg opacity-0 animate-slide-left transition-transform duration-300 hover:scale-105 cursor-default origin-center" style="animation-delay: 0.7s;">
                     HEALTH
                 </h1>
             </div>
 
-            <div class="absolute bottom-10 left-6 md:left-20 flex flex-col items-start gap-2 z-50 opacity-0 animate-slide-up transition-transform duration-300 hover:scale-105 cursor-default origin-bottom-left"
-                style="animation-delay: 0.9s;">
+            <div class="absolute bottom-10 left-6 md:left-20 flex flex-col items-start gap-2 z-50 opacity-0 animate-slide-up transition-transform duration-300 hover:scale-105 cursor-default origin-bottom-left" style="animation-delay: 0.9s;">
                 <div class="w-6 h-6 md:w-8 md:h-8 bg-brand-white rounded-full shadow-sm"></div>
                 <p class="font-playfair text-lg md:text-2xl leading-tight font-semibold mt-1 drop-shadow-md">
                     High<br>Cortisol.
@@ -171,52 +134,37 @@
         </div>
     </section>
 
-    <!-- About Section (Mind Space) -->
     <section id="tentang" class="relative w-full bg-brand-white text-brand-pink py-16 lg:py-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-            <!-- Area Kiri (Animasi geser dari kiri) -->
             <div class="reveal-element opacity-0 -translate-x-12 transition-all duration-1000 ease-out lg:col-span-3 flex flex-row lg:flex-col justify-center items-center lg:items-stretch gap-4 md:gap-8 lg:gap-20 relative order-1 z-10 mb-4 lg:mb-0">
                 <div class="w-36 md:w-48 lg:w-56 lg:self-start overflow-hidden bg-gray-100 rounded-sm">
-                    <img src="assets/about-img-1.png" alt="Kursi Minimalis"
-                        class="w-full h-auto object-cover aspect-square transition-transform duration-700 hover:scale-105">
+                    <img src="assets/about-img-1.png" alt="Kursi Minimalis" class="w-full h-auto object-cover aspect-square transition-transform duration-700 hover:scale-105">
                 </div>
 
                 <div class="w-40 md:w-56 lg:w-72 lg:self-end lg:-mr-16 overflow-hidden bg-gray-100 rounded-sm">
-                    <img src="assets/about-img-2.png" alt="Tanaman Hias"
-                        class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-700 hover:scale-105">
+                    <img src="assets/about-img-2.png" alt="Tanaman Hias" class="w-full h-auto object-cover aspect-[3/4] transition-transform duration-700 hover:scale-105">
                 </div>
             </div>
 
-            <!-- Area Tengah (Animasi naik dari bawah dengan delay 300ms) -->
             <div class="reveal-element opacity-0 translate-y-12 transition-all duration-1000 delay-300 ease-out lg:col-span-5 flex flex-col justify-center relative order-2 z-20">
                 
-                <!-- Area Tengah: Judul yang Seimbang & Center secara Blok -->
                 <div class="flex flex-col w-full max-w-lg mx-auto">
-
-                    <!-- Baris 1: Mind (Rata Kiri) -->
                     <div class="flex items-center w-full relative justify-center md:justify-start">
                         <h2 class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide md:pr-6">
                             Mind
                         </h2>
-                        <!-- PERBAIKAN: Tambah reveal-element, scale-x-0, dan origin-left -->
                         <div class="reveal-element opacity-0 scale-x-0 origin-left transition-all duration-1000 delay-500 hidden md:block flex-grow h-[1px] bg-brand-pink"></div>
                     </div>
 
-                    <!-- Baris 2: Space (Rata Kanan pada md & lg) -->
                     <div class="flex items-center w-full relative mt-0 md:-mt-2 justify-center md:justify-end">
-                        <!-- Garis dekoratif luar layar -->
-                        <!-- PERBAIKAN: Tambah reveal-element, scale-x-0, dan origin-right -->
                         <div class="reveal-element opacity-0 scale-x-0 origin-right transition-all duration-1000 delay-500 absolute right-full w-[100vw] h-[1px] bg-brand-pink hidden lg:block"></div>
-                        
-                        <!-- Garis dalam -->
                         <div class="reveal-element opacity-0 scale-x-0 origin-right transition-all duration-1000 delay-500 hidden md:block flex-grow h-[1px] bg-brand-pink"></div>
                         
                         <h2 class="text-6xl md:text-[5rem] lg:text-[6.5rem] font-playfair font-normal tracking-wide md:pl-6">
                             Space
                         </h2>
                     </div>
-
                 </div>
 
                 <p class="mt-8 md:mt-14 text-center font-inter text-sm md:text-base leading-relaxed max-w-[400px] mx-auto opacity-95">
@@ -226,92 +174,50 @@
                 </p>
 
                 <div class="mt-8 md:mt-10 flex justify-center">
-                    <a href="#"
-                        class="relative overflow-hidden inline-block px-10 py-3 md:px-12 md:py-3.5 rounded-full border border-brand-pink text-brand-pink font-inter font-medium text-sm md:text-base transition-colors duration-300 hover:text-brand-white hover:shadow-lg group">
-                        <span
-                            class="absolute inset-0 bg-brand-pink -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></span>
+                    <a href="#" class="relative overflow-hidden inline-block px-10 py-3 md:px-12 md:py-3.5 rounded-full border border-brand-pink text-brand-pink font-inter font-medium text-sm md:text-base transition-colors duration-300 hover:text-brand-white hover:shadow-lg group">
+                        <span class="absolute inset-0 bg-brand-pink -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></span>
                         <span class="relative z-10">Lihat lebih lanjut</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Area Kanan (Animasi geser dari kanan dengan delay 500ms) -->
             <div class="reveal-element opacity-0 translate-x-12 transition-all duration-1000 delay-500 ease-out lg:col-span-4 flex justify-center lg:justify-end order-3 z-10 h-full min-h-[350px] lg:min-h-[650px] w-full mt-6 lg:mt-0">
-                <div
-                    class="relative w-full max-w-[16rem] md:max-w-sm lg:max-w-md h-[350px] lg:h-[650px] overflow-hidden bg-gray-100 rounded-sm group shadow-sm">
-                    <img id="about-img-1" src="assets/about-img-3.jpg" alt="Konsep Mind Space 1"
-                        class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-100 group-hover:scale-105">
-
-                    <img id="about-img-2" src="assets/about-img-4.jpg" alt="Konsep Mind Space 2"
-                        class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
-
-                    <img id="about-img-3" src="assets/about-img-5.jpg" alt="Konsep Mind Space 3"
-                        class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
-
-                    <img id="about-img-4" src="assets/about-img-6.jpg" alt="Konsep Mind Space 4"
-                        class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
+                <div class="relative w-full max-w-[16rem] md:max-w-sm lg:max-w-md h-[350px] lg:h-[650px] overflow-hidden bg-gray-100 rounded-sm group shadow-sm">
+                    <img id="about-img-1" src="assets/about-img-3.jpg" alt="Konsep Mind Space 1" class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-100 group-hover:scale-105">
+                    <img id="about-img-2" src="assets/about-img-4.jpg" alt="Konsep Mind Space 2" class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
+                    <img id="about-img-3" src="assets/about-img-5.jpg" alt="Konsep Mind Space 3" class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
+                    <img id="about-img-4" src="assets/about-img-6.jpg" alt="Konsep Mind Space 4" class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105">
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Section 3: Isi (Preventif, Kuratif, Rehabilitasi) -->
-    <!-- Mengatur tinggi minimum agar tata letak persentase presisi di Desktop dan Mobile -->
     <section id="isi" class="relative w-full bg-brand-white overflow-hidden h-[1300px] md:h-[1800px] ">
-
-        <!-- 1. SVG PATH UNTUK DESKTOP (S-Curve) -->
-        <!-- Menggunakan trik clip-path inset untuk menutupi garis dari bawah -->
-        <svg class="scroll-svg hidden md:block absolute inset-0 w-full h-full pointer-events-none z-0"
-            preserveAspectRatio="none" viewBox="0 0 100 100"
-            style="clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); transition: clip-path 0.15s ease-out, -webkit-clip-path 0.15s ease-out;">
-            <path d="M -10,0 C 30,5 60,10 60,25 C 60,45 15,45 15,60 C 15,70 15,85 60,90" fill="none" stroke="#FF4081"
-                stroke-width="3" vector-effect="non-scaling-stroke" stroke-linecap="round"></path>
+        <svg class="scroll-svg hidden md:block absolute inset-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none" viewBox="0 0 100 100" style="clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); transition: clip-path 0.15s ease-out, -webkit-clip-path 0.15s ease-out;">
+            <path d="M -10,0 C 30,5 60,10 60,25 C 60,45 15,45 15,60 C 15,70 15,85 60,90" fill="none" stroke="#FF4081" stroke-width="3" vector-effect="non-scaling-stroke" stroke-linecap="round"></path>
         </svg>
 
-        <!-- 2. SVG PATH UNTUK MOBILE (Lurus di Kiri) -->
-        <svg class="scroll-svg md:hidden absolute inset-0 w-full h-full pointer-events-none z-0"
-            preserveAspectRatio="none" viewBox="0 0 100 100"
-            style="clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); transition: clip-path 0.15s ease-out, -webkit-clip-path 0.15s ease-out;">
-            <path d="M 15,0 L 15,100" fill="none" stroke="#FF4081" stroke-width="3" vector-effect="non-scaling-stroke"
-                stroke-linecap="round"></path>
+        <svg class="scroll-svg md:hidden absolute inset-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none" viewBox="0 0 100 100" style="clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); transition: clip-path 0.15s ease-out, -webkit-clip-path 0.15s ease-out;">
+            <path d="M 15,0 L 15,100" fill="none" stroke="#FF4081" stroke-width="3" vector-effect="non-scaling-stroke" stroke-linecap="round"></path>
         </svg>
 
-        <!-- UI DOTS (Mengikuti koordinat persentase dari garis SVG) -->
-        <!-- Dot 1: Preventif (Desktop: 60%x, 25%y | Mobile: 15%x, 20%y) -->
-        <div id="ui-dot-1"
-            class="absolute w-5 h-5 md:w-6 md:h-6 bg-brand-pink rounded-full transition-transform duration-300 scale-0 -translate-x-1/2 -translate-y-1/2 z-10 top-[20%] left-[15%] md:top-[25%] md:left-[60%] shadow-[0_0_15px_rgba(255,64,129,0.5)]">
-        </div>
+        <div id="ui-dot-1" class="absolute w-5 h-5 md:w-6 md:h-6 bg-brand-pink rounded-full transition-transform duration-300 scale-0 -translate-x-1/2 -translate-y-1/2 z-10 top-[20%] left-[15%] md:top-[25%] md:left-[60%] shadow-[0_0_15px_rgba(255,64,129,0.5)]"></div>
 
-        <!-- Dot 2: Kuratif (Desktop: 15%x, 60%y | Mobile: 15%x, 50%y) -->
-        <div id="ui-dot-2"
-            class="absolute w-5 h-5 md:w-6 md:h-6 bg-brand-pink rounded-full transition-transform duration-300 scale-0 -translate-x-1/2 -translate-y-1/2 z-10 top-[50%] left-[15%] md:top-[60%] md:left-[15%] shadow-[0_0_15px_rgba(255,64,129,0.5)]">
-        </div>
+        <div id="ui-dot-2" class="absolute w-5 h-5 md:w-6 md:h-6 bg-brand-pink rounded-full transition-transform duration-300 scale-0 -translate-x-1/2 -translate-y-1/2 z-10 top-[50%] left-[15%] md:top-[60%] md:left-[15%] shadow-[0_0_15px_rgba(255,64,129,0.5)]"></div>
 
-        <!-- Dot 3: Rehabilitasi (Desktop: 60%x, 90%y | Mobile: 15%x, 80%y) -->
-        <!-- PERBAIKAN: md:left-[65%] diubah menjadi md:left-[60%] -->
-        <div id="ui-dot-3"
-            class="absolute w-5 h-5 md:w-6 md:h-6 bg-brand-pink rounded-full transition-transform duration-300 scale-0 -translate-x-1/2 -translate-y-1/2 z-10 top-[80%] left-[15%] md:top-[90%] md:left-[60%] shadow-[0_0_15px_rgba(255,64,129,0.5)]">
-        </div>
+        <div id="ui-dot-3" class="absolute w-5 h-5 md:w-6 md:h-6 bg-brand-pink rounded-full transition-transform duration-300 scale-0 -translate-x-1/2 -translate-y-1/2 z-10 top-[80%] left-[15%] md:top-[90%] md:left-[60%] shadow-[0_0_15px_rgba(255,64,129,0.5)]"></div>
 
-        <!-- CONTAINER KONTEN (Teks & Gambar 3D) -->
-        <!-- Memanfaatkan Outer Wrapper (% posisi) dan Inner Wrapper (Animasi Muncul) -->
-
-        <!-- Item 1: Preventif -->
-        <!-- Outer: Sejajar dengan posisi Dot 1 -->
         <div class="absolute w-[80%] md:w-[35%] -translate-y-1/2 z-20 top-[20%] left-[25%] md:top-[25%] md:left-[65%]">
             <div class="reveal-lock flex flex-col md:flex-row items-start md:items-center relative">
-
-                <!-- Image Source: Local Asset - 3D Padlock -->
-                <div
-                    class="w-48 md:w-56 lg:w-72 mb-6 md:mb-0 md:absolute md:right-full md:mr-40 lg:mr-80 z-10 pointer-events-none">
-                    <img src="assets/isi-img-1.png" alt="Preventif Padlock"
-                        class="w-full h-auto drop-shadow-xl animate-float">
+                <div class="w-48 md:w-56 lg:w-72 mb-6 md:mb-0 md:absolute md:right-full md:mr-40 lg:mr-80 z-10 pointer-events-none">
+                    <img src="assets/isi-img-1.png" alt="Preventif Padlock" class="w-full h-auto drop-shadow-xl animate-float">
                 </div>
 
                 <div class="flex flex-col z-20 text-left">
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-brand-pink mb-3 md:mb-4">
-                        Preventif</h2>
+                        Preventif
+                    </h2>
                     <p class="text-brand-pink/90 font-inter text-sm md:text-base leading-relaxed">
                         Penyisihan Belum Dibuka Pengumpulan karya dimulai 19 September 2026 Kamu sudah terdaftar sebagai
                         peserta. Siapkan link Google
@@ -320,84 +226,51 @@
             </div>
         </div>
 
-        <!-- Item 2: Kuratif -->
-        <!-- Outer: Sejajar dengan posisi Dot 2 -->
         <div class="absolute w-[80%] md:w-[35%] -translate-y-1/2 z-20 top-[50%] left-[25%] md:top-[60%] md:left-[20%]">
             <div class="reveal-lock flex flex-col md:flex-row items-start md:items-center relative">
-
                 <div class="flex flex-col z-20 text-left">
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-brand-pink mb-3 md:mb-4">
-                        Kuratif</h2>
+                        Kuratif
+                    </h2>
                     <p class="text-brand-pink/90 font-inter text-sm md:text-base leading-relaxed">
                         Penyisihan Belum Dibuka Pengumpulan karya dimulai 19 September 2026 Kamu sudah terdaftar sebagai
                         peserta. Siapkan link Google
                     </p>
                 </div>
 
-                <!-- Image Source: Local Asset - 3D Tablet -->
-                <div
-                    class="w-48 md:w-64 mt-6 md:mt-0 md:absolute md:left-full md:ml-10 lg:ml-48 z-10 pointer-events-none">
-                    <img src="assets/isi-img-2.png" alt="Kuratif Tablet"
-                        class="w-full h-auto drop-shadow-xl animate-float-delayed">
+                <div class="w-48 md:w-64 mt-6 md:mt-0 md:absolute md:left-full md:ml-10 lg:ml-48 z-10 pointer-events-none">
+                    <img src="assets/isi-img-2.png" alt="Kuratif Tablet" class="w-full h-auto drop-shadow-xl animate-float-delayed">
                 </div>
-
             </div>
         </div>
 
-        <!-- Item 3: Rehabilitasi -->
-        <!-- Outer: Sejajar dengan posisi Dot 3 -->
-        <!-- PERBAIKAN: md:left-[70%] diubah menjadi md:left-[65%] -->
         <div class="absolute w-[80%] md:w-[35%] -translate-y-1/2 z-20 top-[80%] left-[25%] md:top-[90%] md:left-[65%]">
             <div class="reveal-lock flex flex-col md:flex-row items-start md:items-center relative">
-
                 <div class="flex flex-col z-20 text-left">
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-brand-pink mb-3 md:mb-4">
-                        Rehabilitasi</h2>
+                        Rehabilitasi
+                    </h2>
                     <p class="text-brand-pink/90 font-inter text-sm md:text-base leading-relaxed">
                         Penyisihan Belum Dibuka Pengumpulan karya dimulai 19 September 2026 Kamu sudah terdaftar sebagai
                         peserta. Siapkan link Google
                     </p>
                 </div>
-                <!-- Sesuai gambar referensi, tidak ada aset spesifik di item 3 ini -->
-
             </div>
         </div>
-
     </section>
 
     <div class="w-full h-40 bg-brand-white"></div>
 
-    <!-- Section 4: Layanan & Podcast (Interactive Slider) -->
     <section id="podcast" class="relative w-full bg-brand-white flex flex-col lg:block overflow-hidden">
-
-        <!-- Area Kanan: Kotak Gambar (Image Slider Track) -->
-        <!-- PERBAIKAN: Menambahkan reveal-element, opacity-0, dan translate-x-12 (geser dari kanan) -->
         <div class="reveal-element opacity-0 translate-x-12 transition-all duration-1000 ease-out w-full h-[350px] md:h-[500px] lg:absolute lg:top-0 lg:right-0 lg:bottom-0 lg:w-[50vw] lg:h-full z-10 overflow-hidden">
-            
-            <!-- GAMBAR 1 (Aktif) -->
-            <img src="assets/services-img-1.png" alt="Podcast Cover 1" 
-                class="slide-img absolute inset-0 w-full h-full object-contain lg:object-cover transition-all duration-700 ease-in-out transform scale-100 opacity-100">
-            
-            <!-- GAMBAR 2 (Tersembunyi) -->
-            <img src="assets/services-img-2.png" alt="Podcast Cover 2" 
-                class="slide-img absolute inset-0 w-full h-full object-contain lg:object-cover transition-all duration-700 ease-in-out transform scale-105 opacity-0">
-            
-            <!-- GAMBAR 3 (Tersembunyi) -->
-            <img src="assets/services-img-3.png" alt="Podcast Cover 3" 
-                class="slide-img absolute inset-0 w-full h-full object-contain lg:object-cover transition-all duration-700 ease-in-out transform scale-105 opacity-0">
+            <img src="assets/services-img-1.png" alt="Podcast Cover 1" class="slide-img absolute inset-0 w-full h-full object-contain lg:object-cover transition-all duration-700 ease-in-out transform scale-100 opacity-100">
+            <img src="assets/services-img-2.png" alt="Podcast Cover 2" class="slide-img absolute inset-0 w-full h-full object-contain lg:object-cover transition-all duration-700 ease-in-out transform scale-105 opacity-0">
+            <img src="assets/services-img-3.png" alt="Podcast Cover 3" class="slide-img absolute inset-0 w-full h-full object-contain lg:object-cover transition-all duration-700 ease-in-out transform scale-105 opacity-0">
         </div>
 
-        <!-- Kontainer Teks Utama -->
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-20 flex py-16 lg:py-32">
-
-            <!-- Area Kiri: Teks & Tombol -->
-            <!-- PERBAIKAN: Menambahkan reveal-element, opacity-0, translate-y-12 (naik dari bawah), dan delay-300 -->
             <div class="reveal-element opacity-0 translate-y-12 transition-all duration-1000 delay-300 ease-out w-full lg:w-1/2 flex flex-col justify-center lg:pr-12 xl:pr-20">
-                
-                <!-- Wrapper Teks (Diberi min-height agar layout tidak melompat saat ganti teks) -->
                 <div class="relative w-full min-h-[220px] md:min-h-[250px]">
-                    
-                    <!-- TEKS 1 (Aktif) -->
                     <div class="slide-text absolute top-0 left-0 w-full transition-all duration-700 ease-in-out transform translate-x-0 opacity-100 pointer-events-auto">
                         <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight font-playfair font-bold text-brand-pink mb-6 uppercase tracking-wider">
                             Podcast Interaktif
@@ -409,7 +282,6 @@
                         </p>
                     </div>
 
-                    <!-- TEKS 2 (Tersembunyi di Kanan) -->
                     <div class="slide-text absolute top-0 left-0 w-full transition-all duration-700 ease-in-out transform translate-x-8 opacity-0 pointer-events-none">
                         <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight font-playfair font-bold text-brand-pink mb-6 uppercase tracking-wider">
                             Sesi Mentoring
@@ -421,7 +293,6 @@
                         </p>
                     </div>
 
-                    <!-- TEKS 3 (Tersembunyi di Kanan) -->
                     <div class="slide-text absolute top-0 left-0 w-full transition-all duration-700 ease-in-out transform translate-x-8 opacity-0 pointer-events-none">
                         <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] leading-tight font-playfair font-bold text-brand-pink mb-6 uppercase tracking-wider">
                             Webinar Series
@@ -434,66 +305,46 @@
                     </div>
                 </div>
 
-                <!-- Kontainer Tombol & Panah Navigasi -->
                 <div class="flex items-center gap-2 md:gap-4 mt-8 relative z-30">
                     <a href="#" class="relative overflow-hidden inline-block px-8 py-3 md:px-10 md:py-3.5 rounded-full border border-brand-pink text-brand-pink font-inter font-medium text-sm transition-colors duration-300 hover:text-brand-white hover:shadow-lg group mr-2">
                         <span class="absolute inset-0 bg-brand-pink -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></span>
                         <span class="relative z-10">Lihat lebih lanjut</span>
                     </a>
                     
-                    <!-- Tombol Panah Kiri (Prev) -->
                     <button id="slider-prev" class="p-2 text-brand-pink transition-transform duration-300 hover:-translate-x-1 focus:outline-none cursor-pointer">
                         <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
                         </svg>
                     </button>
 
-                    <!-- Tombol Panah Kanan (Next) -->
                     <button id="slider-next" class="p-2 text-brand-pink transition-transform duration-300 hover:translate-x-1 focus:outline-none cursor-pointer">
                         <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                         </svg>
                     </button>
                 </div>
-
             </div>
         </div>
     </section>
 
     <div class="w-full h-40 bg-brand-white"></div>
 
-
-    <!-- Section 5: Hubungi Kami (Contact) -->
     <section id="hubungi" class="relative w-full bg-brand-white py-16 lg:py-32 overflow-hidden">
-        
         <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-            <!-- Area Kiri: Gambar Telepon -->
-            <!-- PERBAIKAN: Menambahkan reveal-element, opacity-0, dan -translate-x-12 (geser dari kiri) -->
             <div class="reveal-element opacity-0 -translate-x-12 transition-all duration-1000 ease-out lg:col-span-5 w-full overflow-hidden bg-brand-pink rounded-sm">
-                <img src="assets/contact-img.png" alt="Telepon Pink"
-                    class="w-full h-auto object-cover transition-transform duration-700 hover:scale-105">
+                <img src="assets/contact-img.png" alt="Telepon Pink" class="w-full h-auto object-cover transition-transform duration-700 hover:scale-105">
             </div>
 
-            <!-- Area Kanan: Form & Info Kontak -->
-            <!-- PERBAIKAN: Menambahkan reveal-element, opacity-0, translate-y-12 (naik dari bawah), dan delay-300 -->
             <div class="reveal-element opacity-0 translate-y-12 transition-all duration-1000 delay-300 ease-out lg:col-span-7 flex flex-col">
-
-                <!-- Judul Utama (Rata dengan pucuk gambar) -->
                 <h2 class="text-5xl md:text-6xl lg:text-[5.5rem] font-playfair font-bold text-brand-pink mb-8 lg:mb-12 tracking-wide text-center md:text-left leading-none lg:-mt-2">
                     Hubungi Kami
                 </h2>
 
-                <!-- Container Kotak Border Pink -->
                 <div class="border-[3px] border-brand-pink lg:border-r-0 p-8 md:p-12 lg:p-16 flex flex-col md:flex-row gap-12 lg:gap-20 relative bg-brand-white mt-4 items-center">
-
-                    <!-- TRIK BINGKAI MENTOK KANAN -->
                     <div class="hidden lg:block absolute top-[-3px] bottom-[-3px] left-full w-[100vw] border-t-[3px] border-b-[3px] border-brand-pink pointer-events-none z-0"></div>
 
-                    <!-- Form Input (Kiri dalam kotak) -->
                     <form class="flex-1 flex flex-col w-full relative z-10 gap-8">
-
-                        <!-- Input: Nama Lengkap (Floating Label UX) -->
                         <div class="relative z-0 w-full group mt-2">
                             <input type="text" id="nama" class="block py-2.5 px-0 w-full font-inter text-brand-pink bg-transparent border-0 border-b-[2px] border-brand-pink appearance-none focus:outline-none focus:ring-0 peer placeholder-transparent" placeholder=" " required />
                             <label for="nama" class="absolute font-playfair font-semibold text-xl text-brand-pink duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7">
@@ -501,7 +352,6 @@
                             </label>
                         </div>
 
-                        <!-- Input: E-mail (Floating Label UX) -->
                         <div class="relative z-0 w-full group mt-2">
                             <input type="email" id="email" class="block py-2.5 px-0 w-full font-inter text-brand-pink bg-transparent border-0 border-b-[2px] border-brand-pink appearance-none focus:outline-none focus:ring-0 peer placeholder-transparent" placeholder=" " required />
                             <label for="email" class="absolute font-playfair font-semibold text-xl text-brand-pink duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7">
@@ -509,7 +359,6 @@
                             </label>
                         </div>
 
-                        <!-- Input: Message (Floating Label UX) -->
                         <div class="relative z-0 w-full group mt-2">
                             <textarea id="pesan" rows="1" class="block py-2.5 px-0 w-full font-inter text-brand-pink bg-transparent border-0 border-b-[2px] border-brand-pink appearance-none focus:outline-none focus:ring-0 peer resize-none placeholder-transparent" placeholder=" " required></textarea>
                             <label for="pesan" class="absolute font-playfair font-semibold text-xl text-brand-pink duration-300 transform -translate-y-7 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7">
@@ -517,7 +366,6 @@
                             </label>
                         </div>
 
-                        <!-- Tombol Kirim -->
                         <div class="mt-4">
                             <button type="submit" class="relative overflow-hidden inline-block px-10 py-3 md:px-14 md:py-3.5 rounded-full border border-brand-pink text-brand-pink font-inter font-medium text-sm transition-colors duration-300 hover:text-brand-white hover:shadow-lg group w-full md:w-auto">
                                 <span class="absolute inset-0 bg-brand-pink -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></span>
@@ -526,36 +374,27 @@
                         </div>
                     </form>
 
-                    <!-- Info Kontak & Lokasi (Kanan dalam kotak) -->
                     <div class="flex-1 flex flex-col justify-center w-full relative z-10 gap-8">
-
-                        <!-- Block: Contact -->
                         <div>
                             <h3 class="text-3xl lg:text-4xl font-playfair font-bold text-brand-pink mb-2">Contact</h3>
                             <p class="font-inter text-brand-pink text-base opacity-90">hi@Midspace.com</p>
                         </div>
 
-                        <!-- Block: Lokasi -->
                         <div>
                             <h3 class="text-3xl lg:text-4xl font-playfair font-bold text-brand-pink mb-2">Lokasi</h3>
                             <p class="font-inter text-brand-pink text-base opacity-90 leading-relaxed">Jawa Tengah,<br>Indonesia</p>
                         </div>
 
-                        <!-- Block: Social Media Icons -->
                         <div class="flex items-center gap-5 mt-2">
-                            <!-- Facebook -->
                             <a href="#" class="text-brand-pink hover:scale-110 transition-transform duration-300">
                                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"></path></svg>
                             </a>
-                            <!-- Instagram -->
                             <a href="#" class="text-brand-pink hover:scale-110 transition-transform duration-300">
                                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                             </a>
-                            <!-- Twitter -->
                             <a href="#" class="text-brand-pink hover:scale-110 transition-transform duration-300">
                                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
                             </a>
-                            <!-- WhatsApp -->
                             <a href="#" class="text-brand-pink hover:scale-110 transition-transform duration-300">
                                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                             </a>
@@ -568,26 +407,20 @@
         </div>
     </section>
 
-    <!-- Section Hook Image -->
     <section class="w-full pt-40 bg-brand-white">
         <img src="assets/hook-img.png" alt="hook image" class="w-full object-cover">
     </section>
 
-    <!-- Footer Section -->
-    <footer class="w-full bg-brand-pink py-16 md:py-20">
+    <footer class="reveal-element opacity-0 translate-y-12 transition-all duration-1000 ease-out w-full bg-brand-pink py-16 md:py-20">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center gap-12">
 
-            <!-- Baris 1: Social Media Icons -->
-            <!-- Ikon disejajarkan rata tengah dengan ukuran yang konsisten -->
             <div class="flex items-center gap-6 md:gap-8">
-                <!-- Facebook -->
                 <a href="#" class="text-brand-white hover:scale-110 transition-transform duration-300">
                     <svg class="w-10 h-10 md:w-11 md:h-11" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"></path>
                     </svg>
                 </a>
                 
-                <!-- Instagram -->
                 <a href="#" class="text-brand-white hover:scale-110 transition-transform duration-300">
                     <svg class="w-10 h-10 md:w-11 md:h-11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -596,14 +429,12 @@
                     </svg>
                 </a>
                 
-                <!-- Twitter -->
                 <a href="#" class="text-brand-white hover:scale-110 transition-transform duration-300">
                     <svg class="w-10 h-10 md:w-11 md:h-11" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
                     </svg>
                 </a>
                 
-                <!-- WhatsApp -->
                 <a href="#" class="text-brand-white hover:scale-110 transition-transform duration-300">
                     <svg class="w-10 h-10 md:w-11 md:h-11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
@@ -611,19 +442,13 @@
                 </a>
             </div>
 
-            <!-- Baris 2: Navigation Links -->
-            <!-- Menggunakan font serif tebal dengan garis bawah yang berjarak -->
             <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12">
                 <a href="#" class="text-brand-white font-playfair text-2xl md:text-[2rem] font-bold underline decoration-[2px] underline-offset-[8px] hover:text-brand-white/80 transition-colors">Home</a>
-                
                 <a href="#tentang" class="text-brand-white font-playfair text-2xl md:text-[2rem] font-bold underline decoration-[2px] underline-offset-[8px] hover:text-brand-white/80 transition-colors">Tentang</a>
-                
                 <a href="#isi" class="text-brand-white font-playfair text-2xl md:text-[2rem] font-bold underline decoration-[2px] underline-offset-[8px] hover:text-brand-white/80 transition-colors">Isi</a>
-                
                 <a href="#hubungi" class="text-brand-white font-playfair text-2xl md:text-[2rem] font-bold underline decoration-[2px] underline-offset-[8px] hover:text-brand-white/80 transition-colors">Hubungi</a>
             </div>
 
-            <!-- Baris 3: Copyright Text -->
             <div class="mt-4 text-center">
                 <p class="text-brand-white font-inter text-sm md:text-base tracking-wide opacity-90">
                     @ 2026 MindSpace | High Cortisol
@@ -633,7 +458,6 @@
         </div>
     </footer>
 
-    <!-- External JS -->
     <script src="script.js"></script>
 </body>
 
