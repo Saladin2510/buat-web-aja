@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     const images = [
         document.getElementById('hero-img-1'),
         document.getElementById('hero-img-2'),
@@ -117,9 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
 });
 
-// --- 5. Logika Scroll Line Drawing & Locked Reveal (Section Isi) ---
-
-// Konfigurasi Intersection Observer untuk Teks & Gambar (Muncul dan Kunci)
 const revealOptions = { threshold: 0.2 };
 const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -134,9 +130,7 @@ document.querySelectorAll('.reveal-lock').forEach(item => {
     revealObserver.observe(item);
 });
 
-// PERBAIKAN: Menyiapkan SVG untuk animasi Clip-Path Reveal
 const scrollSvgs = document.querySelectorAll('.scroll-svg');
-
 const isiSection = document.getElementById('isi');
 const uiDots = [
     { el: document.getElementById('ui-dot-1'), triggerPos: 0.25 },
@@ -156,11 +150,10 @@ window.addEventListener('scroll', () => {
     let scrollPercent = (startDraw - rect.top) / scrollDistance;
     scrollPercent = Math.max(0, Math.min(1, scrollPercent));
 
-    // PERBAIKAN: Menarik "kain penutup" (clip-path) ke bawah seiring scroll
     const clipPercent = 100 - (scrollPercent * 100);
     scrollSvgs.forEach(svg => {
         svg.style.clipPath = `inset(0 0 ${clipPercent}% 0)`;
-        svg.style.webkitClipPath = `inset(0 0 ${clipPercent}% 0)`; // Dukungan untuk browser Safari
+        svg.style.webkitClipPath = `inset(0 0 ${clipPercent}% 0)`;
     });
 
     uiDots.forEach(dot => {
@@ -174,89 +167,68 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// --- Logika Slider Section Podcast/Layanan ---
 document.addEventListener('DOMContentLoaded', () => {
     const slideTexts = document.querySelectorAll('.slide-text');
     const slideImgs = document.querySelectorAll('.slide-img');
     const btnNext = document.getElementById('slider-next');
     const btnPrev = document.getElementById('slider-prev');
 
-    // Memastikan elemen ada di halaman sebelum menjalankan script
     if (slideTexts.length === 0 || slideImgs.length === 0) return;
 
     let currentIndex = 0;
     const totalSlides = slideTexts.length;
 
     function goToSlide(index, direction) {
-        // 1. Sembunyikan Slide Saat Ini
-        // Untuk Teks: Hilangkan opacity dan geser menjauh
         slideTexts[currentIndex].classList.remove('opacity-100', 'translate-x-0', 'pointer-events-auto');
         slideTexts[currentIndex].classList.add('opacity-0', 'pointer-events-none');
         slideTexts[currentIndex].classList.add(direction === 'next' ? '-translate-x-8' : 'translate-x-8');
 
-        // Untuk Gambar: Beri efek zoom-out dan fade yang elegan
         slideImgs[currentIndex].classList.remove('opacity-100', 'scale-100');
         slideImgs[currentIndex].classList.add('opacity-0', 'scale-105');
 
-        // Bersihkan class transisi dari slide BARU yang akan masuk
         slideTexts[index].classList.remove('-translate-x-8', 'translate-x-8');
 
-        // 2. Tampilkan Slide Baru
         slideTexts[index].classList.remove('opacity-0', 'pointer-events-none');
         slideTexts[index].classList.add('opacity-100', 'translate-x-0', 'pointer-events-auto');
 
         slideImgs[index].classList.remove('opacity-0', 'scale-105');
         slideImgs[index].classList.add('opacity-100', 'scale-100');
 
-        // Perbarui Index
         currentIndex = index;
     }
 
-    // Event Listener untuk Klik Panah Kanan
     btnNext.addEventListener('click', (e) => {
-        e.preventDefault(); // Mencegah halaman melompat ke atas
-        // Jika sudah di slide terakhir, kembali ke 0 (Looping)
+        e.preventDefault();
         let nextIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
         goToSlide(nextIndex, 'next');
     });
 
-    // Event Listener untuk Klik Panah Kiri
     btnPrev.addEventListener('click', (e) => {
         e.preventDefault();
-        // Jika sedang di slide pertama, lompat ke slide terakhir (Looping)
         let prevIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
         goToSlide(prevIndex, 'prev');
     });
 });
 
-// --- Logika Animasi Scroll Reveal ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Cari semua elemen yang memiliki class 'reveal-element'
     const revealElements = document.querySelectorAll('.reveal-element');
-
-    // Pengaturan jarak pemicu animasi
+    
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15 // Animasi akan berjalan saat 15% bagian elemen terlihat di layar
+        threshold: 0.15
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Hapus class yang menyembunyikan dan menggeser elemen
                 entry.target.classList.remove('opacity-0', '-translate-x-12', 'translate-x-12', 'translate-y-12', 'scale-x-0');
-
-                // Tambahkan class agar elemen muncul penuh di titik awal
                 entry.target.classList.add('opacity-100', 'translate-x-0', 'translate-y-0', 'scale-x-100');
-
-                // Hentikan pemantauan pada elemen ini agar animasi hanya terjadi satu kali
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Jalankan observer pada setiap elemen yang ditemukan
     revealElements.forEach(el => {
         observer.observe(el);
     });
