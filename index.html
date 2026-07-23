@@ -71,7 +71,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-brand-pink text-brand-white font-inter antialiased min-h-screen overflow-x-hidden">
+<body class="bg-brand-pink text-brand-white font-inter antialiased min-h-screen overflow-x-hidden md:cursor-none">
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"
+        class="hidden md:block fixed top-0 left-0 w-2 h-2 bg-brand-pink rounded-full pointer-events-none z-[9999] transform -translate-x-1/2 -translate-y-1/2 transition-colors duration-300">
+    </div>
+    <div id="cursor-outline"
+        class="hidden md:block fixed top-0 left-0 w-8 h-8 border-2 border-brand-pink rounded-full pointer-events-none z-[10000] transition-colors duration-300"
+        style="transform: translate(-50%, -50%) scale(1);"></div>
 
     <!-- Hero Section -->
     <section id="beranda" class="relative w-full h-screen overflow-hidden flex flex-col">

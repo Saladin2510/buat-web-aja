@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.reveal-element');
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -239,16 +239,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     smoothLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault(); 
-            
+            e.preventDefault();
+
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return; 
+            if (targetId === '#') return;
 
             const targetElement = document.querySelector(targetId);
             if (!targetElement) return;
 
             // Pengaturan durasi scroll (ms)
-            const duration = 1500; 
+            const duration = 1500;
 
             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
             const startPosition = window.pageYOffset;
@@ -266,18 +266,128 @@ document.addEventListener('DOMContentLoaded', () => {
             function animationScroll(currentTime) {
                 if (startTime === null) startTime = currentTime;
                 const timeElapsed = currentTime - startTime;
-                
+
                 const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
                 window.scrollTo(0, run);
-                
+
                 if (timeElapsed < duration) {
                     requestAnimationFrame(animationScroll);
                 } else {
-                    window.scrollTo(0, targetPosition); 
+                    window.scrollTo(0, targetPosition);
                 }
             }
 
             requestAnimationFrame(animationScroll);
+        });
+    });
+});
+
+// --- Custom Smooth Cursor & Dynamic Size Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorOutline = document.getElementById('cursor-outline');
+
+    if (!cursorDot || !cursorOutline) return;
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let outlineX = mouseX;
+    let outlineY = mouseY;
+
+    let lastMouseX = mouseX;
+    let lastMouseY = mouseY;
+
+    let targetScale = 1;
+    let currentScale = 1;
+    let isHovering = false;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+
+        // 1. Logika Kecepatan (Membesar saat bergerak)
+        const dx = mouseX - lastMouseX;
+        const dy = mouseY - lastMouseY;
+        const speed = Math.sqrt(dx * dx + dy * dy);
+
+        if (!isHovering) {
+            // Skala akan bertambah seiring kecepatan kursor, dibatasi maksimal skala 2.5
+            targetScale = Math.min(targetScale + speed * 0.02, 2.5);
+        }
+
+        lastMouseX = mouseX;
+        lastMouseY = mouseY;
+
+        /// 2. Logika Kontras Warna (Deteksi Latar Belakang)
+        const targetEl = document.elementFromPoint(mouseX, mouseY);
+        if (targetEl) {
+            // Mencari parent terdekat yang secara eksplisit memiliki warna pink ATAU putih
+            const closestBg = targetEl.closest('.bg-brand-pink, .bg-brand-white');
+
+            // Jika elemen terdekatnya pink, jadikan kursor putih
+            if (closestBg && closestBg.classList.contains('bg-brand-pink')) {
+                cursorDot.classList.add('bg-brand-white');
+                cursorDot.classList.remove('bg-brand-pink');
+
+                if (!isHovering) {
+                    cursorOutline.classList.add('border-brand-white');
+                    cursorOutline.classList.remove('border-brand-pink', 'border-transparent');
+                }
+            }
+            // Jika elemen terdekatnya putih, jadikan kursor pink
+            else {
+                cursorDot.classList.add('bg-brand-pink');
+                cursorDot.classList.remove('bg-brand-white');
+
+                if (!isHovering) {
+                    cursorOutline.classList.add('border-brand-pink');
+                    cursorOutline.classList.remove('border-brand-white', 'border-transparent');
+                }
+            }
+        }
+    });
+
+    function animateCursor() {
+        // Efek trailing delay pada cincin luar
+        outlineX += (mouseX - outlineX) * 0.15;
+        outlineY += (mouseY - outlineY) * 0.15;
+
+        // Logika penyusutan (Decay) ukuran kursor saat diam
+        if (!isHovering) {
+            targetScale += (1 - targetScale) * 0.08;
+        }
+
+        // Transisi skala (membesar/mengecil) yang mulus
+        currentScale += (targetScale - currentScale) * 0.15;
+
+        // Terapkan posisi dan ukuran
+        cursorOutline.style.transform = `translate(-50%, -50%) scale(${currentScale})`;
+        cursorOutline.style.left = `${outlineX}px`;
+        cursorOutline.style.top = `${outlineY}px`;
+
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // 3. Efek Hover Tombol & Tautan (Magnetic/Zoom)
+    const interactables = document.querySelectorAll('a, button');
+
+    interactables.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            isHovering = true;
+            targetScale = 1.5;
+            cursorOutline.classList.add('bg-brand-pink/20', 'border-transparent');
+            cursorOutline.classList.remove('border-brand-pink', 'border-brand-white');
+        });
+
+        el.addEventListener('mouseleave', () => {
+            isHovering = false;
+            targetScale = 1;
+            cursorOutline.classList.remove('bg-brand-pink/20', 'border-transparent');
+            // Warna border akan otomatis dipulihkan oleh logika deteksi latar saat mouse digerakkan
         });
     });
 });
