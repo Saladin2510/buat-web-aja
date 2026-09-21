@@ -314,7 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const speed = Math.sqrt(dx * dx + dy * dy);
 
         if (!isHovering) {
-            // Skala akan bertambah seiring kecepatan kursor, dibatasi maksimal skala 2.5
             targetScale = Math.min(targetScale + speed * 0.02, 2.5);
         }
 
